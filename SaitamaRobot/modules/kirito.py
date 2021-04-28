@@ -13,6 +13,6 @@ def kazuto(update: Update, context: CallbackContext):
    
 
 
-KAZUTO_HANDLER = DisableAbleCommandHandler("KAZUTO", animequotes)
+KAZUTO_HANDLER = DisableAbleCommandHandler("kazuto", kazuto)
 
 dispatcher.add_handler(KAZUTO_HANDLER)
