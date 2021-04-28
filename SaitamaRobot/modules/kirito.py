@@ -13,11 +13,7 @@ def kazuto(update: Update, context: CallbackContext):
    
 @run_async
 def kirito(update: Update, context: CallbackContext):
-    message = update.effective_message
-    name = message.reply_to_message.from_user.first_name if message.reply_to_message else message.from_user.first_name
-    reply_photo = message.reply_to_message.reply_photo if message.reply_to_message else message.reply_photo
-    reply_photo(
-        random.choice(kiritostrings.KIRI_IMG), caption=f'*To command is to serve, nothing more and nothing less...\nCommand me {name}*')
+update.effective_message.reply_photo(random.choice(kiritostrings.KIRI_IMG), caption=f'*Command me {name}*')
 
 
 
