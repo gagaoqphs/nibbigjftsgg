@@ -13,7 +13,7 @@ def kazuto(update: Update, context: CallbackContext):
    
 @run_async
 def kirito(update: Update, context: CallbackContext):
-update.effective_message.reply_photo(random.choice(kiritostrings.KIRI_IMG), caption=f'*Command me*')
+update.effective_message.reply_photo(random.choice(kiritostrings.KIRI_IMG))
 
 
 
