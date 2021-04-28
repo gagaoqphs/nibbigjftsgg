@@ -34,6 +34,8 @@ KIRI_PHOTO = (
   "https://telegra.ph/file/c499269b6d25ec7376d47.jpg"
 )
 
+
+
 SLAP_SAITAMA_TEMPLATES = (
     "Slap me one more time and I'll mute you.",
     "Stop slapping me. REEEEEEEEEEEEEE.",
