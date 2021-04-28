@@ -10,15 +10,7 @@ from telegram.ext import CallbackContext, run_async
 @run_async
 def kazuto(update: Update, context: CallbackContext):
     update.effective_message.reply_text(random.choice(kiritostrings.KAZUTO))
-   
-@run_async
-def kirito(update: Update, context: CallbackContext):
-update.effective_message.reply_photo(random.choice(kiritostrings.KIRI_IMG))
-
-
 
 KAZUTO_HANDLER = DisableAbleCommandHandler("kazuto", kazuto)
-KIRITO_HANDLER = DisableAbleCommandHandler("kirito", kirito)
 
 dispatcher.add_handler(KAZUTO_HANDLER)
-dispatcher.add_handler(KIRITO_HANDLER)
