@@ -13,16 +13,6 @@ from telegram.ext import CallbackContext, run_async
 
 GIF_ID = "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr5nGxsE"
 
-@run_async
-def kirito(update: Update, context: CallbackContext):
-    message = update.effective_message
-    name = message.reply_to_message.from_user.first_name if message.reply_to_message else message.from_user.first_name
-    reply_photo = message.reply_to_message.reply_photo if message.reply_to_message else message.reply_photo
-    reply_photo(
-        random.choice(fun_strings.KIRI_IMG), caption=f'*To command is to serve, nothing more and nothing less...\n Command me {name}*')
-
-
-
 
 @run_async
 def runs(update: Update, context: CallbackContext):
@@ -60,7 +50,15 @@ def sanitize(update: Update, context: CallbackContext):
     )
     reply_animation(random.choice(fun_strings.GIFS), caption=f"*Sanitizes {name}*")
 
-
+@run_async
+def kirito(update: Update, context: CallbackContext):
+    message = update.effective_message
+    name = message.reply_to_message.from_user.first_name if message.reply_to_message else message.from_user.first_name
+    reply_photo = message.reply_to_message.reply_photo if message.reply_to_message else message.reply_photo
+    reply_photo(
+        random.choice(fun_strings.KIRI_IMG), caption=f'*Be my opponent {name}*')
+    
+    
 @run_async
 def slap(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
