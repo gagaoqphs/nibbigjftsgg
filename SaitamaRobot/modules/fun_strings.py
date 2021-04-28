@@ -25,7 +25,7 @@ GIFS = [
     "CgACAgUAAx0CU_rCTAABAjdSX1s3fq5iEJ64YeQLKI8cD7CSuSEAAlUBAAJu09hW5iqWB0hTPD4bBA",
 ]
 
-KIRI_PHOTO = (
+KIRI_IMG = (
   "https://telegra.ph/file/d5b02e632ef719dc542d0.jpg"
   "https://telegra.ph/file/77cf975c0328ef9e1a100.jpg"
   "https://telegra.ph/file/715647eb4930b066dc762.jpg"
