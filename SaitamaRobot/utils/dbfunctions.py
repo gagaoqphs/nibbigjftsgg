@@ -2,6 +2,7 @@ from SaitamaRobot import db
 from typing import Dict, List, Union
 
 karmadb = db.karma
+coupledb=db.couple
 
 async def get_karmas_count() -> dict:
     chats = karmadb.find({"chat_id": {"$lt": 0}})
