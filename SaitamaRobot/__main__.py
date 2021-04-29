@@ -74,10 +74,12 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hello there {}, my name is {}!
-I am an Anime themed group management bot[.](https://telegra.ph/file/40cfa38c48f79610a9cdf.jpg)
+Hello there {},
+I am {}!.... The Black Swordsman from Sword Art Online
+I am an Anime themed group management bot [.](https://telegra.ph/file/c425bc00a3d9829afadbc.jpg)
 
-Join my 👒 Straw hats pirate crew 👒 by adding me to your group.
+I can use my ⚔️ AinCrad Sword Style ⚔️ to manage your group in an efficient way.....
+
 
 *Press /help to see all commands.*
 
@@ -85,10 +87,12 @@ Join my 👒 Straw hats pirate crew 👒 by adding me to your group.
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*[.](https://telegra.ph/file/5d1b138d269cb22820b99.mp4) 
-I am A Group Management Bot which helps you to maintain your group.
+Hey there! My name is *{}*[.](https://telegra.ph/file/285d97df62071bfd087f2.jpg)
 
-If I am Not Working Then You Can Report Me At @OnePieceSupport
+Trust in my ⚔️ AinCrad Sword Style ⚔️...
+I am the one who can moange your group in best possible way...
+
+If I am Not Working Then You Can Report Me At @KazutoSuppot
 
 *Main* commands available:
  • /help: PM's you this message.
@@ -107,7 +111,7 @@ And the following:
 
 SAITAMA_IMG ="https://telegra.ph/file/16c1102556f3c37dcc5a1.jpg"
 KIRITO_VID = "https://telegra.ph/file/4f8c3a53bb49f71642fd8.mp4"
-
+IMG_SEC = "https://telegra.ph/file/b0f037cd358e86bf57376.jpg"
 DONATE_STRING = """No need to waste your money here"""
 
 IMPORTED = {}
@@ -221,7 +225,7 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="➕ Add Luffy To Your Group ➕",
+                                text="✪ Add Kazuto To Your Group ✪",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
@@ -229,25 +233,17 @@ def start(update: Update, context: CallbackContext):
                         ],
                         [
                             InlineKeyboardButton(
-                                text="Support Group",
-                                url=f"https://t.me/OnePieceSupport",
+                                text="۞ Support Group ۞",
+                                url=f"https://t.me/kazutosupport",
                             ),
                             InlineKeyboardButton(
-                                text="Updates Channel",
-                                url="https://t.me/MonkeyDLuffyUpdates",
+                                text="✎ Updates Channel ✎",
+                                url="https://t.me/kazutoupdate",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="🖇Source Code🖇", 
-                                url="https://t.me/joinchat/YSUZCCxE-UI1MGE1",
-                            )
-                      
-
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="🔓Ship Guide🔓", 
+                                text="⚔️ AinCrad Guide ⚔️", 
                                 url="t.me/{}?start=help".format(context.bot.username),
                             )
                         ],
@@ -380,7 +376,7 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "Contact me in PM to get the list of possible commands[.](https://telegra.ph/file/b0f037cd358e86bf57376.jpg)",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -548,7 +544,7 @@ def get_settings(update: Update, context: CallbackContext):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = "Click here to get this chat's settings, as well as yours."
+            text = "Click here to get this chat's settings, as well as yours[.](https://i.imgur.com/33YdA1E.mp4)"
             msg.reply_text(
                 text,
                 reply_markup=InlineKeyboardMarkup(
