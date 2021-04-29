@@ -375,8 +375,9 @@ def get_help(update: Update, context: CallbackContext):
                 ),
             )
             return
-        update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands[.](https://telegra.ph/file/b0f037cd358e86bf57376.jpg)",
+        update.effective_message.reply_photo(
+                IMG_SEC,
+            "Contact me in PM to get the list of possible commands.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
