@@ -655,7 +655,7 @@ WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "explorer"], whitelistl
 TIGERLIST_HANDLER = CommandHandler(["tigers", "knights"], tigerlist)
 SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "wizards"], supportlist)
 SUDOLIST_HANDLER = CommandHandler(["sudolist", "wielders"], sudolist)
-DEVLIST_HANDLER = CommandHandler(["devlist", "rurel"], devlist)
+DEVLIST_HANDLER = CommandHandler(["devlist", "rurels"], devlist)
 
 dispatcher.add_handler(SUDO_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
