@@ -262,7 +262,7 @@ def addtiger(update: Update, context: CallbackContext) -> str:
         WOLVES.remove(user_id)
 
     if user_id in TIGERS:
-        message.reply_text(""Noob ! This member is already part of Ain✪Crad Knight.")
+        message.reply_text("Noob ! This member is already part of Ain✪Crad Knight.")
         return ""
 
     data["tigers"].append(user_id)
