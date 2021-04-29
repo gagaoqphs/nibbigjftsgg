@@ -114,7 +114,7 @@ def hpmanager(user):
 
 def make_bar(per):
     done = min(round(per / 10), 10)
-    return "▰" * done + "▱" * (10 - done)
+    return "★" * done + "☆" * (10 - done) 
 
 
 @run_async
@@ -271,7 +271,7 @@ def info(update: Update, context: CallbackContext):
                     text += _stext.format("Admin")
     if user_id not in [bot.id, 777000, 1087968824]:
         userhp = hpmanager(user)
-        text += f"\n\n<b>Health:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]"
+        text += f"\n\n<b>Health:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n『<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%』"
 
     try:
         spamwtc = sw.get_ban(int(user.id))
@@ -287,13 +287,13 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThis person is 'Solo AinCrad Raider'."
+        text += "\n\nThis person is '✯Solo AinCrad Raider✯'."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis person is 'AinCrad Ruler ✪'."
+        text += "\n\nThis person is '✪AinCrad Ruler✪'."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThis person is 'Wielder'."
+        text += "\n\nThis person is '✫Wielder✫'."
         disaster_level_present = True
     elif user.id in DEMONS:
         text += "\n\nThis person is 'Wizard'."
@@ -306,7 +306,7 @@ def info(update: Update, context: CallbackContext):
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/Dojeto/2https://t.me/Dojeto/2">?</a>]'.format(
+        text += ' [<a href="https://t.me/Dojeto/2https://t.me/Dojeto/2">❂</a>]'.format(
             bot.username
         )
 
@@ -479,7 +479,7 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == bot.id and sender_id not in DEV_USERS:
             message.reply_text(
-                "Erm... yeah, I only AinCrad Rulers Alliance to set my bio."
+                "Erm... yeah, I only trust A̲i̲n̲C̲r̲a̲d̲ ̲R̲u̲l̲e̲r̲s̲ ̲A̲l̲l̲i̲a̲n̲c̲e̲ to set my bio."
             )
             return
 
