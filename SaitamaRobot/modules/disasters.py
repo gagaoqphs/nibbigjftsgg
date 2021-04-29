@@ -642,20 +642,20 @@ Group admins/group owners do not need these commands.
 Visit @{SUPPORT_CHAT} for more information.
 """
 
-SUDO_HANDLER = CommandHandler(("addsudo", "addadmiral"), addsudo)
-SUPPORT_HANDLER = CommandHandler(("addsupport", "addvice"), addsupport)
-TIGER_HANDLER = CommandHandler(("addtiger", "addwarlord"), addtiger)
-WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addpirate"), addwhitelist)
-UNSUDO_HANDLER = CommandHandler(("removesudo", "removeadmiral"), removesudo)
-UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removevice"), removesupport)
-UNTIGER_HANDLER = CommandHandler(("removetiger", "removewarlord"), removetiger)
-UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removepirate"), removewhitelist)
+SUDO_HANDLER = CommandHandler(("addsudo", "addwielder"), addsudo)
+SUPPORT_HANDLER = CommandHandler(("addsupport", "addwizard"), addsupport)
+TIGER_HANDLER = CommandHandler(("addtiger", "addknight"), addtiger)
+WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addexplorer"), addwhitelist)
+UNSUDO_HANDLER = CommandHandler(("removesudo", "rmwielder"), removesudo)
+UNSUPPORT_HANDLER = CommandHandler(("removesupport", "rmwizard"), removesupport)
+UNTIGER_HANDLER = CommandHandler(("removetiger", "rmknight"), removetiger)
+UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "rmexplorer"), removewhitelist)
 
-WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "pirates"], whitelistlist)
-TIGERLIST_HANDLER = CommandHandler(["tigers", "warlords"], tigerlist)
-SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "vice"], supportlist)
-SUDOLIST_HANDLER = CommandHandler(["sudolist", "admirals"], sudolist)
-DEVLIST_HANDLER = CommandHandler(["devlist", "emperors"], devlist)
+WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "explorer"], whitelistlist)
+TIGERLIST_HANDLER = CommandHandler(["tigers", "knights"], tigerlist)
+SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "wizards"], supportlist)
+SUDOLIST_HANDLER = CommandHandler(["sudolist", "wielders"], sudolist)
+DEVLIST_HANDLER = CommandHandler(["devlist", "rurel"], devlist)
 
 dispatcher.add_handler(SUDO_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
@@ -672,7 +672,7 @@ dispatcher.add_handler(SUPPORTLIST_HANDLER)
 dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(DEVLIST_HANDLER)
 
-__mod_name__ = "Ain✪crad Ruler"
+__mod_name__ = "Ain✪crad"
 __handlers__ = [
     SUDO_HANDLER,
     SUPPORT_HANDLER,
