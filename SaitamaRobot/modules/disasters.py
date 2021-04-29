@@ -73,16 +73,16 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        message.reply_text("This member is already an Admiral.")
+        message.reply_text(" Noob! This member is already part of Ain✪Crad Wielder.")
         return ""
 
     if user_id in DEMONS:
-        rt += "Requested Pirate Crew to promote a Vice Admiral to Admiral."
+        rt += "Whoo ! Another Member Joining Ain✪Crad Wizard To Aincrad Wielder."
         data["supports"].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "Requested Pirate Crew to promote a Pirate to Admiral."
+        rt += "Whoo ! Another Member Joining Ain✪Crad explorer To Aincrad Wielder."
         data["whitelists"].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -94,7 +94,7 @@ def addsudo(update: Update, context: CallbackContext) -> str:
 
     update.effective_message.reply_text(
         rt
-        + "\nSuccessfully promoted {} to Admiral!".format(
+        + "\nSuccessfully promoted {} to Wielderl!".format(
             user_member.first_name
         )
     )
@@ -135,16 +135,16 @@ def addsupport(
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "Requested Pirate Crew to demote this Admiral to Vice Admiral."
+        rt += "Ahh! We lost our one of Ain✪crad Wielder Member."
         data["sudos"].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        message.reply_text("This user is already a Vice Admiral.")
+        message.reply_text(" Noob! This member is already part of Ain✪Crad Wizard.")
         return ""
 
     if user_id in WOLVES:
-        rt += "Requested Pirate Crew to promote this Pirate to Vice Admiral."
+        rt += "Whoo ! Another Member Joining Ain✪Crad explorer To Aincrad Wizard."
         data["whitelists"].remove(user_id)
         WOLVES.remove(user_id)
 
@@ -155,7 +155,7 @@ def addsupport(
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\n{user_member.first_name} was promoted as a Vice Admiral!"
+        rt + f"\n{user_member.first_name} was promoted as a Wizard!"
     )
 
     log_message = (
@@ -191,17 +191,17 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "This member is an Admiral, Demoting to Pirate."
+        rt += "Ahh! We lost our one of Ain✪crad Wielder Member."
         data["sudos"].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "This user is already a Vice Admiral, Demoting to Pirate."
+        rt += "Ahh! We lost our one of Ain✪crad Wizard Member."
         data["supports"].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        message.reply_text("This user is already a Pirate!.")
+        message.reply_text("Noob ! This member is already part of Ain✪Crad explorer.")
         return ""
 
     data["whitelists"].append(user_id)
@@ -211,7 +211,7 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\nSuccessfully promoted {user_member.first_name} to a Pirate!"
+        rt + f"\nSuccessfully promoted {user_member.first_name} to a explorer!"
     )
 
     log_message = (
@@ -247,22 +247,22 @@ def addtiger(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "This member is an Admiral, Demoting to Warlord."
+        rt += "Ahh! We lost our one of Ain✪crad Wielder Member."
         data["sudos"].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "This user is already a Vice Admiral, Demoting to Warlord."
+        rt += "Ahh! We lost our one of Ain✪crad Wizard Member."
         data["supports"].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        rt += "This user is already a Pirate, Demoting to Warlord."
+        rt += "Whoo ! Another Member Joining Ain✪Crad explorer To Aincrad Knight."
         data["whitelists"].remove(user_id)
         WOLVES.remove(user_id)
 
     if user_id in TIGERS:
-        message.reply_text("This user is already a Warlord.")
+        message.reply_text(""Noob ! This member is already part of Ain✪Crad Knight.")
         return ""
 
     data["tigers"].append(user_id)
@@ -307,7 +307,7 @@ def removesudo(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        message.reply_text("Requested Pirate Crew to demote this user to Civilian")
+        message.reply_text("Ahh! We lost our one of Ain✪crad Wielder Member.")
         DRAGONS.remove(user_id)
         data["sudos"].remove(user_id)
 
@@ -326,7 +326,7 @@ def removesudo(update: Update, context: CallbackContext) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not an Admiral")
+        message.reply_text(" Now This user is not part of Ain✪crad Wielder")
         return ""
 
 
@@ -350,7 +350,7 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DEMONS:
-        message.reply_text("Requested Pirate Crew to demote this user to Civilian")
+        message.reply_text("Ahh! We lost our one of Ain✪crad Wizard Member.")
         DEMONS.remove(user_id)
         data["supports"].remove(user_id)
 
@@ -369,7 +369,7 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a Vice Admiral!")
+        message.reply_text(" Now this user in not part of Ain✪crad Wizard")
         return ""
 
 
@@ -393,7 +393,7 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in WOLVES:
-        message.reply_text("Demoting to normal user")
+        message.reply_text("Ahh! We lost our one of Ain✪crad explorer Member.")
         WOLVES.remove(user_id)
         data["whitelists"].remove(user_id)
 
@@ -411,7 +411,7 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a Pirate.")
+        message.reply_text("Now This user is not part of Ain✪crad explorer")
         return ""
 
 
@@ -435,7 +435,7 @@ def removetiger(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in TIGERS:
-        message.reply_text("Demoting to normal user")
+        message.reply_text("Ahh! We lost our one of Ain✪crad Knight Member.")
         TIGERS.remove(user_id)
         data["tigers"].remove(user_id)
 
@@ -453,14 +453,14 @@ def removetiger(update: Update, context: CallbackContext) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a Warlord!")
+        message.reply_text("Now This user is not part of Ain✪crad Knight")
         return ""
 
 
 @run_async
 @whitelist_plus
 def whitelistlist(update: Update, context: CallbackContext):
-    reply = "<b>Known Pirates 🏴‍☠️:</b>\n"
+    reply = "<b>Known Ain✪crad Explorer:</b>\n"
     m = update.effective_message.reply_text(
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
@@ -479,7 +479,7 @@ def whitelistlist(update: Update, context: CallbackContext):
 @run_async
 @whitelist_plus
 def tigerlist(update: Update, context: CallbackContext):
-    reply = "<b>Known Warlords 🗡:</b>\n"
+    reply = "<b>Known Ain✪crad Knights:</b>\n"
     m = update.effective_message.reply_text(
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
@@ -501,7 +501,7 @@ def supportlist(update: Update, context: CallbackContext):
     m = update.effective_message.reply_text(
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
-    reply = "<b>Known Vice Admirals 🚢:</b>\n"
+    reply = "<b>Known Ain✪crad Wizard:</b>\n"
     for each_user in DEMONS:
         user_id = int(each_user)
         try:
@@ -520,7 +520,7 @@ def sudolist(update: Update, context: CallbackContext):
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
     true_sudo = list(set(DRAGONS) - set(DEV_USERS))
-    reply = "<b>Known Admirals ⚓️:</b>\n"
+    reply = "<b>Known Ain✪crad Wielders:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
         try:
@@ -539,7 +539,7 @@ def devlist(update: Update, context: CallbackContext):
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
     true_dev = list(set(DEV_USERS) - {OWNER_ID})
-    reply = "<b>Known Emperors 💣:</b>\n"
+    reply = "<b>Known Ain✪crad Ruler:</b>\n"
     for each_user in true_dev:
         user_id = int(each_user)
         try:
@@ -556,15 +556,15 @@ Commands listed here only work for users with special access are mainly used for
 Group admins/group owners do not need these commands. 
 
  ╔ *List all special users:*
- ╠ `/admirals`*:* Lists all Admirals
- ╠ `/vice`*:* Lists all Vice Admirals
- ╠ `/warlords`*:* Lists all Warlords 
- ╠ `/pirates`*:* Lists all Pirates
- ╠ `/emperors`*:* Lists all Emperors (dev)
- ╠ `/addadmiral`*:* Adds a user to Admiral
- ╠ `/addvice`*:* Adds a user to Vice Admiral
- ╠ `/addwarlord`*:* Adds a user to Warlord
- ╠ `/addpirate`*:* Adds a user to Pirate
+ ╠ `/wielders`*:* Lists all Wielders
+ ╠ `/wizards`*:* Lists all Vice Wizards
+ ╠ `/knights`*:* Lists all Knights 
+ ╠ `/explorer`*:* Lists all Explorer
+ ╠ `/rulers`*:* Lists all Rurels
+ ╠ `/addwielder`*:* Adds a user to Wielder
+ ╠ `/addwizard`*:* Adds a user to Wizard
+ ╠ `/addknight`*:* Adds a user to Knight
+ ╠ `/addexplorer`*:* Adds a user to Explorer
  ╚ `Add dev (Emperor) doesnt exist, devs should know how to add themselves`
 
  ╔ *Ping:*
@@ -672,7 +672,7 @@ dispatcher.add_handler(SUPPORTLIST_HANDLER)
 dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(DEVLIST_HANDLER)
 
-__mod_name__ = "Kaizoku"
+__mod_name__ = "Ain✪crad Ruler"
 __handlers__ = [
     SUDO_HANDLER,
     SUPPORT_HANDLER,
