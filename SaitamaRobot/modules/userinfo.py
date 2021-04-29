@@ -114,7 +114,7 @@ def hpmanager(user):
 
 def make_bar(per):
     done = min(round(per / 10), 10)
-    return "■" * done + "□" * (10 - done)
+    return "⬛" * done + "⬜" * (10 - done)
 
 
 @run_async
@@ -134,8 +134,8 @@ def get_id(update: Update, context: CallbackContext):
 
             msg.reply_text(
                 f"<b>Telegram ID:</b>,"
-                f"• {html.escape(user2.first_name)} - <code>{user2.id}</code>.\n"
-                f"• {html.escape(user1.first_name)} - <code>{user1.id}</code>.",
+                f" ✪ {html.escape(user2.first_name)} - <code>{user2.id}</code>.\n"
+                f" ✪ {html.escape(user1.first_name)} - <code>{user1.id}</code>.",
                 parse_mode=ParseMode.HTML,
             )
 
@@ -193,7 +193,7 @@ async def group_info(event) -> None:
     msg += f"\n`Users`: `{totallist.total}`"
     msg += "\n\n**Admins List:**"
     for x in totallist:
-        msg += f"\n• [{x.id}](tg://user?id={x.id})"
+        msg += f"\n ✪ [{x.id}](tg://user?id={x.id})"
     msg += f"\n\n**Description**:\n`{ch_full.full_chat.about}`"
     await event.reply(msg)
 
@@ -241,7 +241,7 @@ def info(update: Update, context: CallbackContext):
     rep = message.reply_text("<code>Appraising...</code>", parse_mode=ParseMode.HTML)
 
     text = (
-        f"╒═══「<b> Appraisal results:</b> 」\n"
+        f"╒═══ ✪「<b> Appraisal results:</b> 」\n"
         f"ID: <code>{user.id}</code>\n"
         f"First Name: {html.escape(user.first_name)}"
     )
@@ -287,26 +287,26 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThis person is 'Pirate King ☠️'."
+        text += "\n\nThis person is 'Solo AinCrad Raider'."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis person is 'Emperor'."
+        text += "\n\nThis person is 'AinCrad Ruler ✪'."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThis person is 'Admiral'."
+        text += "\n\nThis person is 'Wielder'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThis person is 'Vice Admiral'."
+        text += "\n\nThis person is 'Wizard'."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThis person is 'Warlord'."
+        text += "\n\nThis person is 'Knight'."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThis person is 'Pirate'."
+        text += "\n\nThis person is 'Explorer'."
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/MonkeyDLuffyUpdates/6">?</a>]'.format(
+        text += ' [<a href="https://t.me/Dojeto/2https://t.me/Dojeto/2">?</a>]'.format(
             bot.username
         )
 
@@ -479,7 +479,7 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == bot.id and sender_id not in DEV_USERS:
             message.reply_text(
-                "Erm... yeah, I only trust Heroes Association to set my bio."
+                "Erm... yeah, I only AinCrad Rulers Alliance to set my bio."
             )
             return
 
