@@ -63,3 +63,4 @@ pretty_errors
 motor
 dnspython
 python-arq
+functools
