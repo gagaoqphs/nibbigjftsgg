@@ -72,6 +72,12 @@ ENUM_FUNC_MAP = {
 }
 
 VERIFIED_USER_WAITLIST = {}
+DEV_IMG = "https://telegra.ph/file/92172a4158bf512386908.jpg"
+OWNER_IMG = "https://i.imgur.com/ZHz2oqq.png"
+DRAGON_IMG = "https://telegra.ph/file/21e1b09910d0521c74d16.jpg"
+DEMON_IMG = "https://telegra.ph/file/5f325861480d3baa0e73c.jpg"
+TIGER_IMG = "https://telegra.ph/file/d498e33d89bd5a7e7164e.jpg"
+WOLF_IMG = "https://telegra.ph/file/c1601ba6042168a2a7eda.jpg"
 
 
 # do not async
@@ -189,8 +195,9 @@ def new_member(update: Update, context: CallbackContext):
 
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
-                update.effective_message.reply_text(
-                    "The Pirate King ☠️ just joined!", reply_to_message_id=reply
+                update.effective_message.reply_photo(
+                OWNER_IMG,
+                    "ɪᴍᴍᴇᴀsᴜʀᴀʙʟᴇ ᴘᴏᴡᴇʀ ʟᴇᴠᴇʟs ᴀɴᴅ ɪɴғɪɴɪᴛᴇ ᴘᴏᴡᴇʀ.... Defnitely the 𝕯𝖊𝖒𝖔𝖓𝔾𝕠𝕕!", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
@@ -201,8 +208,9 @@ def new_member(update: Update, context: CallbackContext):
 
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
-                update.effective_message.reply_text(
-                    "One of the Emperor just joined this chat!",
+                update.effective_message.reply_photo(
+                DEV_IMG,
+                    "Beware civilians an 🎖Ain•Crad🎖 Ruler just joined...\nGives me chills ALERT everyone!!!",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -214,8 +222,9 @@ def new_member(update: Update, context: CallbackContext):
 
             # Welcome Sudos
             elif new_mem.id in DRAGONS:
-                update.effective_message.reply_text(
-                    "Whoa! An Admiral of pirates is here! Stay Alert!",
+               update.effective_message.reply_photo(
+                DRAGON_IMG,
+                    "Beware Everyone!! A ⚔️Wielder⚔️ of the Raiding Team is here...!",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -227,8 +236,9 @@ def new_member(update: Update, context: CallbackContext):
 
             # Welcome Support
             elif new_mem.id in DEMONS:
-                update.effective_message.reply_text(
-                    "Behold! a Vice Admiral just joined 🚢!",
+               update.effective_message.reply_photo(
+                DEMON_IMG,
+                    "Damn!! A Wizard of the Raiding Team just joined...!",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -240,8 +250,9 @@ def new_member(update: Update, context: CallbackContext):
 
             # Welcome Whitelisted
             elif new_mem.id in TIGERS:
-                update.effective_message.reply_text(
-                    "Kaizoku ou ni, ore wa naru 🏴‍☠️!", reply_to_message_id=reply
+                update.effective_message.reply_photo(
+                TIGER_IMG,
+                    "Oof! A Knight of the Raiding team just joined...🏴‍☠️!", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
@@ -252,8 +263,9 @@ def new_member(update: Update, context: CallbackContext):
 
             # Welcome Tigers
             elif new_mem.id in WOLVES:
-                update.effective_message.reply_text(
-                    "Alert! a Warlord just joined 🛡!", reply_to_message_id=reply
+                update.effective_message.reply_photo(
+                WOLF_IMG,
+                    "Aha!! An explorer of the Raiding team... /nPleased to see here sire🛡!", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
