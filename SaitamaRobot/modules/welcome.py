@@ -72,12 +72,13 @@ ENUM_FUNC_MAP = {
 }
 
 VERIFIED_USER_WAITLIST = {}
-DEV_IMG = "https://telegra.ph/file/92172a4158bf512386908.jpg"
-OWNER_IMG = "https://i.imgur.com/ZHz2oqq.png"
-DRAGON_IMG = "https://telegra.ph/file/21e1b09910d0521c74d16.jpg"
-DEMON_IMG = "https://telegra.ph/file/5f325861480d3baa0e73c.jpg"
-TIGER_IMG = "https://telegra.ph/file/d498e33d89bd5a7e7164e.jpg"
-WOLF_IMG = "https://telegra.ph/file/c1601ba6042168a2a7eda.jpg"
+
+DEV_IMG = "https://telegra.ph/file/92172a4158bf512386908.jpg",
+OWNER_IMG = "https://i.imgur.com/ZHz2oqq.png",
+DRAGON_IMG = "https://telegra.ph/file/21e1b09910d0521c74d16.jpg",
+DEMON_IMG = "https://telegra.ph/file/5f325861480d3baa0e73c.jpg",
+TIGER_IMG = "https://telegra.ph/file/d498e33d89bd5a7e7164e.jpg",
+WOLF_IMG = "https://telegra.ph/file/c1601ba6042168a2a7eda.jpg",
 
 
 # do not async
