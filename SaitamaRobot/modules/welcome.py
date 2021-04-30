@@ -46,7 +46,6 @@ from telegram.ext import (
     MessageHandler,
     run_async,
 )
-
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
 VALID_WELCOME_FORMATTERS = [
     "first",
@@ -184,21 +183,21 @@ def new_member(update: Update, context: CallbackContext):
 
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
-                update.effective_message.reply_photo(
+                update.effective_message.reply_text( 
                 OWNER_IMG,
                     "ɪᴍᴍᴇᴀsᴜʀᴀʙʟᴇ ᴘᴏᴡᴇʀ ʟᴇᴠᴇʟs ᴀɴᴅ ɪɴғɪɴɪᴛᴇ ᴘᴏᴡᴇʀ.... Defnitely the 𝕯𝖊𝖒𝖔𝖓𝔾𝕠𝕕!", reply_to_message_id=reply
-                ),
+                )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
                     f"Bot Owner just joined the group"
                 )
-                
+                continue
 
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
-                update.effective_message.reply_photo(
-                DEV_IMG,
+                update.effective_message.reply_text(
+                    DEV_IMG,
                     "Beware civilians an 🎖Ain•Crad🎖 Ruler just joined...\nGives me chills ALERT everyone!!!",
                     reply_to_message_id=reply,
                 )
@@ -207,61 +206,61 @@ def new_member(update: Update, context: CallbackContext):
                     f"#USER_JOINED\n"
                     f"Bot Dev just joined the group"
                 )
-                
+                continue
 
             # Welcome Sudos
             elif new_mem.id in DRAGONS:
-                update.effective_message.reply_photo(
+                update.effective_message.reply_text(
                 DRAGON_IMG,
                     "Beware Everyone!! A ⚔️Wielder⚔️ of the Raiding Team is here...!",
                     reply_to_message_id=reply,
-                ),
+                )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
                     f"Bot Sudo just joined the group"
                 )
-                
+                continue
 
             # Welcome Support
             elif new_mem.id in DEMONS:
-               update.effective_message.reply_photo(
+                update.effective_message.reply_text(
                 DEMON_IMG,
                     "Damn!! A Wizard of the Raiding Team just joined...!",
                     reply_to_message_id=reply,
-                ),
+                )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
                     f"Bot Support just joined the group"
                 )
-                
+                continue
 
             # Welcome Whitelisted
             elif new_mem.id in TIGERS:
-                update.effective_message.reply_photo(
+                update.effective_message.reply_text(
                 TIGER_IMG,
                     "Oof! A Knight of the Raiding team just joined...🏴‍☠️!", reply_to_message_id=reply
-                ),
+                )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
                     f"A whitelisted user joined the chat"
                 )
-                
+                continue
 
             # Welcome Tigers
             elif new_mem.id in WOLVES:
-                update.effective_message.reply_photo(
+                update.effective_message.reply_text(
                 WOLF_IMG,
                     "Aha!! An explorer of the Raiding team... /nPleased to see here sire🛡!", reply_to_message_id=reply
-                ),
+                )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
                     f"A whitelisted user joined the chat"
                 )
-                
+                continue
             # Welcome yourself
             elif new_mem.id == bot.id:
                 creator = None
@@ -293,7 +292,7 @@ def new_member(update: Update, context: CallbackContext):
                 update.effective_message.reply_text(
                     "Watashi ga kita!", reply_to_message_id=reply
                 )
-                
+                continue
             else:
                 buttons = sql.get_welc_buttons(chat.id)
                 keyb = build_keyboard(buttons)
