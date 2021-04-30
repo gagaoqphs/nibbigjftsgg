@@ -46,6 +46,7 @@ from telegram.ext import (
     MessageHandler,
     run_async,
 )
+
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
 VALID_WELCOME_FORMATTERS = [
     "first",
@@ -192,7 +193,7 @@ def new_member(update: Update, context: CallbackContext):
                     f"#USER_JOINED\n"
                     f"Bot Owner just joined the group"
                 )
-                continue
+                
 
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
@@ -206,7 +207,7 @@ def new_member(update: Update, context: CallbackContext):
                     f"#USER_JOINED\n"
                     f"Bot Dev just joined the group"
                 )
-                continue
+                
 
             # Welcome Sudos
             elif new_mem.id in DRAGONS:
@@ -220,7 +221,7 @@ def new_member(update: Update, context: CallbackContext):
                     f"#USER_JOINED\n"
                     f"Bot Sudo just joined the group"
                 )
-                continue
+                
 
             # Welcome Support
             elif new_mem.id in DEMONS:
@@ -234,7 +235,7 @@ def new_member(update: Update, context: CallbackContext):
                     f"#USER_JOINED\n"
                     f"Bot Support just joined the group"
                 )
-                continue
+                
 
             # Welcome Whitelisted
             elif new_mem.id in TIGERS:
@@ -247,7 +248,7 @@ def new_member(update: Update, context: CallbackContext):
                     f"#USER_JOINED\n"
                     f"A whitelisted user joined the chat"
                 )
-                continue
+                
 
             # Welcome Tigers
             elif new_mem.id in WOLVES:
@@ -260,7 +261,7 @@ def new_member(update: Update, context: CallbackContext):
                     f"#USER_JOINED\n"
                     f"A whitelisted user joined the chat"
                 )
-                continue
+                
             # Welcome yourself
             elif new_mem.id == bot.id:
                 creator = None
@@ -292,7 +293,7 @@ def new_member(update: Update, context: CallbackContext):
                 update.effective_message.reply_text(
                     "Watashi ga kita!", reply_to_message_id=reply
                 )
-                continue
+                
             else:
                 buttons = sql.get_welc_buttons(chat.id)
                 keyb = build_keyboard(buttons)
