@@ -255,11 +255,11 @@ def start(update: Update, context: CallbackContext):
             update.effective_message.reply_video(
                 KIRITO_VID, caption=f"My presence... It awaits your orders⚡\n⚡lets raid AinCrad★")
              update.effective_message.reply_text(
-            "I am here with my sword!\n<b>Have been fighting since:</b> <code>{}</code>".format(
+            "I'm here already with my Sword!\n<b>Have been fighting since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
-            )
+        )
 
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
