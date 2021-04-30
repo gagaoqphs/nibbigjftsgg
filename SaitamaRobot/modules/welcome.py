@@ -184,8 +184,7 @@ def new_member(update: Update, context: CallbackContext):
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_text( 
-                OWNER_IMG,
-                    "ɪᴍᴍᴇᴀsᴜʀᴀʙʟᴇ ᴘᴏᴡᴇʀ ʟᴇᴠᴇʟs ᴀɴᴅ ɪɴғɪɴɪᴛᴇ ᴘᴏᴡᴇʀ.... Defnitely the 𝕯𝖊𝖒𝖔𝖓𝔾𝕠𝕕!", reply_to_message_id=reply
+              "ɪᴍᴍᴇᴀsᴜʀᴀʙʟᴇ ᴘᴏᴡᴇʀ ʟᴇᴠᴇʟs ᴀɴᴅ ɪɴғɪɴɪᴛᴇ ᴘᴏᴡᴇʀ.... Defnitely the 𝕯𝖊𝖒𝖔𝖓𝔾𝕠𝕕 [!]("https://i.imgur.com/ZHz2oqq.png")", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
@@ -197,8 +196,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    DEV_IMG,
-                    "Beware civilians an 🎖Ain•Crad🎖 Ruler just joined...\nGives me chills ALERT everyone!!!",
+                    "Beware civilians an 🎖Ain•Crad🎖 Ruler just joined...\nGives me chills ALERT everyone!! [!]("https://telegra.ph/file/92172a4158bf512386908.jpg")",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -211,8 +209,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Sudos
             elif new_mem.id in DRAGONS:
                 update.effective_message.reply_text(
-                DRAGON_IMG,
-                    "Beware Everyone!! A ⚔️Wielder⚔️ of the Raiding Team is here...!",
+                    "Beware Everyone!! A ⚔️Wielder⚔️ of the Raiding Team is here...[!]("https://telegra.ph/file/21e1b09910d0521c74d16.jpg")",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -225,8 +222,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Support
             elif new_mem.id in DEMONS:
                 update.effective_message.reply_text(
-                DEMON_IMG,
-                    "Damn!! A Wizard of the Raiding Team just joined...!",
+                    "Damn!! A Wizard of the Raiding Team just joined... [!]("https://telegra.ph/file/5f325861480d3baa0e73c.jpg")",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -239,8 +235,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Whitelisted
             elif new_mem.id in TIGERS:
                 update.effective_message.reply_text(
-                TIGER_IMG,
-                    "Oof! A Knight of the Raiding team just joined...🏴‍☠️!", reply_to_message_id=reply
+                    "Oof! A Knight of the Raiding team just joined...🏴‍☠️ [!]("https://telegra.ph/file/d498e33d89bd5a7e7164e.jpg")", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
@@ -252,8 +247,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Tigers
             elif new_mem.id in WOLVES:
                 update.effective_message.reply_text(
-                WOLF_IMG,
-                    "Aha!! An explorer of the Raiding team... /nPleased to see here sire🛡!", reply_to_message_id=reply
+                    "Aha!! An explorer of the Raiding team... /nPleased to see here sire🛡 [!]("https://telegra.ph/file/c1601ba6042168a2a7eda.jpg")", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
