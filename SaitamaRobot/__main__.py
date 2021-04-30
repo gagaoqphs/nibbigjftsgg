@@ -254,6 +254,12 @@ def start(update: Update, context: CallbackContext):
              
             update.effective_message.reply_video(
                 KIRITO_VID, caption=f"My presence... It awaits your orders⚡\n⚡lets raid AinCrad★")
+             update.effective_message.reply_text(
+            "I am here with my sword!\n<b>Have been fighting since:</b> <code>{}</code>".format(
+                uptime
+            ),
+            parse_mode=ParseMode.HTML,
+            )
 
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
@@ -545,7 +551,7 @@ def get_settings(update: Update, context: CallbackContext):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = "Click here to get this chat's settings, as well as yours[.](https://i.imgur.com/33YdA1E.mp4)"
+            text = "Click here to get this chat's settings, as well as yours\n[.](https://i.imgur.com/33YdA1E.mp4)"
             msg.reply_text(
                 text,
                 reply_markup=InlineKeyboardMarkup(
