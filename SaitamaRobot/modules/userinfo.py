@@ -189,7 +189,7 @@ async def group_info(event) -> None:
     if entity.username:
         msg += f"\n**Username**: {entity.username}"
     msg += "\n\n**Member Stats:**"
-    msg += f"\n`Admins:` `{len(totallist)}`"
+    msg += f"\n`✯Admins:` `{len(totallist)}`"
     msg += f"\n`Users`: `{totallist.total}`"
     msg += "\n\n**Admins List:**"
     for x in totallist:
@@ -243,16 +243,16 @@ def info(update: Update, context: CallbackContext):
     text = (
         f"╒═══ ✪「<b> Appraisal results:</b> 」\n"
         f"ID: <code>{user.id}</code>\n"
-        f"First Name: {html.escape(user.first_name)}"
+        f"✯First Name: {html.escape(user.first_name)}"
     )
 
     if user.last_name:
-        text += f"\nLast Name: {html.escape(user.last_name)}"
+        text += f"\n✯Last Name: {html.escape(user.last_name)}"
 
     if user.username:
-        text += f"\nUsername: @{html.escape(user.username)}"
+        text += f"\n✯Username: @{html.escape(user.username)}"
 
-    text += f"\nPermalink: {mention_html(user.id, 'link')}"
+    text += f"\n✯Permalink: {mention_html(user.id, 'link')}"
 
     if chat.type != "private" and user_id != bot.id:
         _stext = "\nPresence: <code>{}</code>"
@@ -296,17 +296,17 @@ def info(update: Update, context: CallbackContext):
         text += "\n\nThis person is '✫Wielder✫'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThis person is 'Wizard'."
+        text += "\n\nThis person is '✯Wizard✯'."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThis person is 'Knight'."
+        text += "\n\nThis person is '★Knight★'."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThis person is 'Explorer'."
+        text += "\n\nThis person is '✧Explorer✧'."
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/Dojeto/2https://t.me/Dojeto/2">❂</a>]'.format(
+        text += ' [<a href="https://t.me/kazutoupdate/3">❂</a>]'.format(
             bot.username
         )
 
@@ -476,7 +476,7 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == bot.id and sender_id not in DEV_USERS:
             message.reply_text(
-                "Erm... yeah, I only trust A̲i̲n̲C̲r̲a̲d̲ ̲R̲u̲l̲e̲r̲s̲ ̲A̲l̲l̲i̲a̲n̲c̲e̲ to set my bio."
+                "Erm... yeah, I only trust ✧AinCrad Rulers Alliance✧ to set my bio."
             )
             return
 
