@@ -60,6 +60,13 @@ VALID_WELCOME_FORMATTERS = [
     "mention",
 ]
 
+DEV_IMG = "https://telegra.ph/file/92172a4158bf512386908.jpg"
+OWNER_IMG = "https://i.imgur.com/ZHz2oqq.png"
+DRAGON_IMG = "https://telegra.ph/file/21e1b09910d0521c74d16.jpg"
+DEMON_IMG = "https://telegra.ph/file/5f325861480d3baa0e73c.jpg"
+TIGER_IMG = "https://telegra.ph/file/d498e33d89bd5a7e7164e.jpg"
+WOLF_IMG = "https://telegra.ph/file/c1601ba6042168a2a7eda.jpg"
+
 ENUM_FUNC_MAP = {
     sql.Types.TEXT.value: dispatcher.bot.send_message,
     sql.Types.BUTTON_TEXT.value: dispatcher.bot.send_message,
@@ -73,12 +80,7 @@ ENUM_FUNC_MAP = {
 
 VERIFIED_USER_WAITLIST = {}
 
-DEV_IMG = "https://telegra.ph/file/92172a4158bf512386908.jpg",
-OWNER_IMG = "https://i.imgur.com/ZHz2oqq.png",
-DRAGON_IMG = "https://telegra.ph/file/21e1b09910d0521c74d16.jpg",
-DEMON_IMG = "https://telegra.ph/file/5f325861480d3baa0e73c.jpg",
-TIGER_IMG = "https://telegra.ph/file/d498e33d89bd5a7e7164e.jpg",
-WOLF_IMG = "https://telegra.ph/file/c1601ba6042168a2a7eda.jpg",
+
 
 
 # do not async
@@ -200,11 +202,6 @@ def new_member(update: Update, context: CallbackContext):
                 OWNER_IMG,
                     "ɪᴍᴍᴇᴀsᴜʀᴀʙʟᴇ ᴘᴏᴡᴇʀ ʟᴇᴠᴇʟs ᴀɴᴅ ɪɴғɪɴɪᴛᴇ ᴘᴏᴡᴇʀ.... Defnitely the 𝕯𝖊𝖒𝖔𝖓𝔾𝕠𝕕!", reply_to_message_id=reply
                 )
-                welcome_log = (
-                    f"{html.escape(chat.title)}\n"
-                    f"#USER_JOINED\n"
-                    f"Bot Owner just joined the group"
-                )
                 continue
 
             # Welcome Devs
@@ -214,11 +211,7 @@ def new_member(update: Update, context: CallbackContext):
                     "Beware civilians an 🎖Ain•Crad🎖 Ruler just joined...\nGives me chills ALERT everyone!!!",
                     reply_to_message_id=reply,
                 )
-                welcome_log = (
-                    f"{html.escape(chat.title)}\n"
-                    f"#USER_JOINED\n"
-                    f"Bot Dev just joined the group"
-                )
+               
                 continue
 
             # Welcome Sudos
@@ -227,12 +220,7 @@ def new_member(update: Update, context: CallbackContext):
                 DRAGON_IMG,
                     "Beware Everyone!! A ⚔️Wielder⚔️ of the Raiding Team is here...!",
                     reply_to_message_id=reply,
-                )
-                welcome_log = (
-                    f"{html.escape(chat.title)}\n"
-                    f"#USER_JOINED\n"
-                    f"Bot Sudo just joined the group"
-                )
+                ) 
                 continue
 
             # Welcome Support
@@ -242,11 +230,6 @@ def new_member(update: Update, context: CallbackContext):
                     "Damn!! A Wizard of the Raiding Team just joined...!",
                     reply_to_message_id=reply,
                 )
-                welcome_log = (
-                    f"{html.escape(chat.title)}\n"
-                    f"#USER_JOINED\n"
-                    f"Bot Support just joined the group"
-                )
                 continue
 
             # Welcome Whitelisted
@@ -255,11 +238,6 @@ def new_member(update: Update, context: CallbackContext):
                 TIGER_IMG,
                     "Oof! A Knight of the Raiding team just joined...🏴‍☠️!", reply_to_message_id=reply
                 )
-                welcome_log = (
-                    f"{html.escape(chat.title)}\n"
-                    f"#USER_JOINED\n"
-                    f"A whitelisted user joined the chat"
-                )
                 continue
 
             # Welcome Tigers
@@ -267,11 +245,6 @@ def new_member(update: Update, context: CallbackContext):
                 update.effective_message.reply_photo(
                 WOLF_IMG,
                     "Aha!! An explorer of the Raiding team... /nPleased to see here sire🛡!", reply_to_message_id=reply
-                )
-                welcome_log = (
-                    f"{html.escape(chat.title)}\n"
-                    f"#USER_JOINED\n"
-                    f"A whitelisted user joined the chat"
                 )
                 continue
 
