@@ -64,3 +64,4 @@ motor
 dnspython
 python-arq
 lyricsgenius
+wget
