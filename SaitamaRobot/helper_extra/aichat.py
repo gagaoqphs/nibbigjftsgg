@@ -1,4 +1,4 @@
-from SaitmaRobot.mongo import client as db_x
+from SaitamaRobot.mongo import client as db_x
 
 lydia = db_x["CHATBOT"]
 talkmode = db_x["TALKMODE"]
