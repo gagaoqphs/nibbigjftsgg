@@ -65,3 +65,4 @@ dnspython
 python-arq
 lyricsgenius
 wget
+envparse
