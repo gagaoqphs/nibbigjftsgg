@@ -2,10 +2,10 @@ import asyncio
 import sys
 
 from motor import motor_asyncio
-from YoneRobot import MONGO_DB_URI 
+from SaitamaRobot import MONGO_DB_URI 
 from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
-from YoneRobot.conf import get_int_key, get_str_key
+from SaitamaRobot.conf import get_int_key, get_str_key
 
 
 MONGO_PORT = get_int_key("27017")
