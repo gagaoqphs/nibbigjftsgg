@@ -565,7 +565,7 @@ Group admins/group owners do not need these commands.
  ╠ `/addwizard`*:* Adds a user to Wizard
  ╠ `/addknight`*:* Adds a user to Knight
  ╠ `/addexplorer`*:* Adds a user to Explorer
- ╚ `Add dev (Emperor) doesnt exist, devs should know how to add themselves`
+ ╚ `Add dev (Rulers) doesnt exist, devs should know how to add themselves`
 
  ╔ *Ping:*
  ╠ `/ping`*:* gets ping time of bot to telegram server
@@ -655,7 +655,7 @@ WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "explorer"], whitelistl
 TIGERLIST_HANDLER = CommandHandler(["tigers", "knights"], tigerlist)
 SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "wizards"], supportlist)
 SUDOLIST_HANDLER = CommandHandler(["sudolist", "wielders"], sudolist)
-DEVLIST_HANDLER = CommandHandler(["devlist", "rurels"], devlist)
+DEVLIST_HANDLER = CommandHandler(["devlist", "rulers"], devlist)
 
 dispatcher.add_handler(SUDO_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
