@@ -245,7 +245,7 @@ async def inuka(client, message):
 
 
 @kaizu.on_message(
-    filters.regex("Kazuto|kazuto|Sung|Dojeto|Hello|Kei|hello|Sung Jin-woo")
+    filters.regex("Kazuto|kazuto|Sung|Dojeto|Hello|Kei|hello|Arin")
     & ~filters.bot
     & ~filters.via_bot
     & ~filters.forwarded
