@@ -83,8 +83,8 @@ async def hmm(client, message):
         message.continue_propagation()
     if chat_id in en_chats:
         test = msg
-        test = test.replace("kaizu", "Aco")
-        test = test.replace("kaizu", "Aco")
+        test = test.replace("AinCrad", "Aco")
+        test = test.replace("AinCrad", "Aco")
         querystring = {
             "bid": "178",
             "key": "sX5A2PcYZbsN5EY6",
@@ -99,7 +99,7 @@ async def hmm(client, message):
         result = response.text
         result = result.replace('{"cnt":"', "")
         result = result.replace('"}', "")
-        result = result.replace("Aco", "kaizu")
+        result = result.replace("Aco", "Kirito")
         result = result.replace("<a href=\\", "<a href =")
         result = result.replace("<\/a>", "</a>")
         pro = result
@@ -161,7 +161,7 @@ async def hmm(client, message):
         result = response.text
         result = result.replace('{"cnt":"', "")
         result = result.replace('"}', "")
-        result = result.replace("Aco", "kaizu")
+        result = result.replace("Aco", "AinCrad")
         result = result.replace("<a href=\\", "<a href =")
         result = result.replace("<\/a>", "</a>")
         pro = result
@@ -215,8 +215,8 @@ async def inuka(client, message):
     # test = emoji.demojize(test.strip())
 
     # Kang with the credits bitches @InukaASiTH
-    test = test.replace("kaizu", "Aco")
-    test = test.replace("kaizu", "Aco")
+    test = test.replace("AinCrad", "Aco")
+    test = test.replace("AinCrad", "Aco")
     querystring = {
         "bid": "178",
         "key": "sX5A2PcYZbsN5EY6",
@@ -245,7 +245,7 @@ async def inuka(client, message):
 
 
 @kaizu.on_message(
-    filters.regex("Kazuto|kazuto|Sung|Dojeto|hello|hi")
+    filters.regex("Kazuto|kazuto|Sung|Dojeto|Hello|Kei|hello|Sung Jin-woo")
     & ~filters.bot
     & ~filters.via_bot
     & ~filters.forwarded
@@ -292,8 +292,8 @@ async def inuka(client, message):
     # test = emoji.demojize(test.strip())
 
     # Kang with the credits bitches @InukaASiTH
-    test = test.replace("kaizu", "Aco")
-    test = test.replace("kaizu", "Aco")
+    test = test.replace("AinCrad", "Aco")
+    test = test.replace("AinCrad", "Aco")
     querystring = {
         "bid": "178",
         "key": "sX5A2PcYZbsN5EY6",
