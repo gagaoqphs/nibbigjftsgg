@@ -77,6 +77,3 @@ async def _(event):
 def resize_image(image):
     im = Image.open(image)
     im.save(image, "PNG")
-
-
-__mod_name__ = "T GRAPH"
