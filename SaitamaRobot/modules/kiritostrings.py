@@ -16,6 +16,21 @@ KAZUTO = (
   "I Thought That The Closer The Real And Virtual World Got, The Better The Future Would Be. But The More The Boundary Between Them Blurs, The More It Starts To Trick People.",
   "Sung Jin Woo is a demon indeed...",
   "Dont u dare play games with me... I will call the GodlyDemon Sung and @Dojeto ...",
+  "Things tend to have a great taste in life until u eat them... ",
+  "My personality coincides with a lot of characters... I am leathal and dangerous... ",
+  "We tend to stay happy as long as people near us dont dare hurting us...",
+  "Live long and prosper... -Mr.Spock",
+  "Emotions are alien to me, I am a scientist... -Mr.Spock",
+  "Here if you are trying to rate me on the scale of 1 to 10 then I'm on 0 my friend you can't judge my moves. -@PirateMonkeyDlyffy",
+  "It's true that being alone and lonely are two completely different things but they are one heck of a painful combination. -Yuta",
+  "Win in silence , let them think you are losing -Yuta",
+  "Who needs fuckin' dreams, When whole life has been a nightmare  -Dravill",
+  "Where should i go 😕??? \n Should i take left where nothing is right 💜 \n Or \n Should i take right where nothing is left 🙂",
+  "Human betrayed by a Human turns into a Demon.... -@SirAbraxas",
+  "Better die once than dying everyday -Yuta",
+  "People change with time... You can't blame a tree for shedding his leaves...cause it's natural -@SirAbraxas",
+  "I want changes -@imArinX",
+  "Have a taste of betrayal..."
 )
 
 KIRI_IMG = (
