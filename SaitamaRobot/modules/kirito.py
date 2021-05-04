@@ -28,7 +28,7 @@ def kirito(update: Update, context: CallbackContext):
         random.choice(kiritostrings.KIRI_IMG), caption=f'*Be my opponent {name}*')
     
     
-    @run_async
+@run_async
 @typing_action
 def lyrics(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
