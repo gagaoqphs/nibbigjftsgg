@@ -19,7 +19,7 @@
 Kazuto is a simple one-punch solution to your group management needs and has become one of the most prominently kanged bots around telegram, purely weeab themed.
 
 ## Bot INFO (◠‿◕)
-* Bot Link:  <a href="https://t.me/kazutoSuperbot" alt="Luffy Robot"> <img src="https://img.shields.io/badge/%F0%9F%A4%96%20-LuffyRobot-blue" /> </a>
+* Bot Link:  <a href="https://t.me/kazutoSuperbot" alt="Kazuto Kirigaya"> <img src="https://img.shields.io/badge/%F0%9F%A4%96%20-LuffyRobot-blue" /> </a>
 * Support Group: <a  href="https://t.me/Kazutosuport" alt="Kazuto Sypport AinCrad"> <img  src="https://img.shields.io/badge/%F0%9F%92%A1-One%20Piece%20Support-9cf" /> </a>
 * Update Channel: <a  href="https://t.me/Kazutoupdates" alt="Kazuto Updates"> <img  src="https://img.shields.io/badge/%F0%9F%92%A1-Luffy%20Update%20Channel-9cf" /> </a>
 
