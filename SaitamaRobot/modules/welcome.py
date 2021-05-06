@@ -184,7 +184,7 @@ def new_member(update: Update, context: CallbackContext):
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_text( 
-              "ɪᴍᴍᴇᴀsᴜʀᴀʙʟᴇ ᴘᴏᴡᴇʀ ʟᴇᴠᴇʟs ᴀɴᴅ ɪɴғɪɴɪᴛᴇ ᴘᴏᴡᴇʀ.... Defnitely the 𝕯𝖊𝖒𝖔𝖓𝔾𝕠𝕕", OWNER_IMG, reply_to_message_id=reply
+              "ɪᴍᴍᴇᴀsᴜʀᴀʙʟᴇ ᴘᴏᴡᴇʀ ʟᴇᴠᴇʟs ᴀɴᴅ ɪɴғɪɴɪᴛᴇ ᴘᴏᴡᴇʀ.... Defnitely the 𝕯𝖊𝖒𝖔𝖓𝔾𝕠𝕕", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
@@ -196,7 +196,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "Beware civilians an 🎖Ain•Crad🎖 Ruler just joined...\nGives me chills ALERT everyone!!", DEV_IMG,
+                    "Beware civilians an 🎖Ain•Crad🎖 Ruler just joined...\nGives me chills ALERT everyone!!",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -209,7 +209,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Sudos
             elif new_mem.id in DRAGONS:
                 update.effective_message.reply_text(
-                    "Beware Everyone!! A ⚔️Wielder⚔️ of the Raiding Team is here...", DRAGON_IMG,
+                    "Beware Everyone!! A ⚔️Wielder⚔️ of the Raiding Team is here...",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -222,7 +222,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Support
             elif new_mem.id in DEMONS:
                 update.effective_message.reply_text(
-                    "Damn!! A Wizard of the Raiding Team just joined... ", DEMON_IMG,
+                    "Damn!! A Wizard of the Raiding Team just joined... ", 
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -235,7 +235,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Whitelisted
             elif new_mem.id in TIGERS:
                 update.effective_message.reply_text(
-                    "Oof! A Knight of the Raiding team just joined...🏴‍☠️ ", TIGER_IMG, reply_to_message_id=reply
+                    "Oof! A Knight of the Raiding team just joined...🏴‍☠️ ", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
@@ -247,7 +247,7 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome Tigers
             elif new_mem.id in WOLVES:
                 update.effective_message.reply_text(
-                    "Aha!! An explorer of the Raiding team... /nPleased to see here sire🛡 ", WOLF_IMG, reply_to_message_id=reply
+                    "Aha!! An explorer of the Raiding team... /nPleased to see here sire🛡 ", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
