@@ -87,10 +87,10 @@ I can use my ⚔️ AinCrad Sword Style ⚔️ to manage your group in an effici
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*[.](https://telegra.ph/file/285d97df62071bfd087f2.jpg)
+Hey there! My name is *{}* [❂](https://telegra.ph/file/285d97df62071bfd087f2.jpg)
 
 Trust in my ⚔️ AinCrad Sword Style ⚔️...
-I am the one who can moange your group in best possible way...
+I am the one who can mange your group in best possible way...
 
 If I am Not Working Then You Can Report Me At @KazutoSuppot
 
@@ -112,6 +112,7 @@ And the following:
 SAITAMA_IMG ="https://telegra.ph/file/16c1102556f3c37dcc5a1.jpg"
 KIRITO_VID = "https://telegra.ph/file/4f8c3a53bb49f71642fd8.mp4"
 IMG_SEC = "https://telegra.ph/file/b0f037cd358e86bf57376.jpg"
+IMG_THREE ="https://i.imgur.com/33YdA1E.mp4"
 DONATE_STRING = """No need to waste your money here"""
 
 IMPORTED = {}
@@ -490,6 +491,8 @@ def settings_button(update: Update, context: CallbackContext):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
+                update.effective_message.reply_photo(
+                IMG_,
                 "Hi there! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
@@ -546,7 +549,7 @@ def get_settings(update: Update, context: CallbackContext):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = "Click here to get this chat's settings, as well as yours\n[.](https://i.imgur.com/33YdA1E.mp4)"
+            text = "Click here to get this chat's settings, as well as yours"
             msg.reply_text(
                 text,
                 reply_markup=InlineKeyboardMarkup(
