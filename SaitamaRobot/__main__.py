@@ -112,7 +112,9 @@ And the following:
 SAITAMA_IMG ="https://telegra.ph/file/16c1102556f3c37dcc5a1.jpg"
 KIRITO_VID = "https://telegra.ph/file/4f8c3a53bb49f71642fd8.mp4"
 IMG_SEC = "https://telegra.ph/file/b0f037cd358e86bf57376.jpg"
-IMG_THREE ="https://i.imgur.com/33YdA1E.mp4"
+IMG_THREE = "https://i.imgur.com/Sckezok.jpg"
+GIF_VID = "https://i.imgur.com/33YdA1E.mp4"
+IMG_FOUR = "https://telegra.ph/file/d8abb19c3e617021741fb.jpg"
 DONATE_STRING = """No need to waste your money here"""
 
 IMPORTED = {}
@@ -361,7 +363,8 @@ def get_help(update: Update, context: CallbackContext):
     if chat.type != chat.PRIVATE:
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
-            update.effective_message.reply_text(
+            update.effective_message.reply_photo(
+                IMG_THREE,
                 f"Contact me in PM to get help of {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -378,7 +381,7 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_photo(
-                IMG_SEC,
+                IMG_THREE,
             "Contact me in PM to get the list of possible commands.",
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -552,6 +555,7 @@ def get_settings(update: Update, context: CallbackContext):
             text = "Click here to get this chat's settings, as well as yours"
             msg.reply_text(
                 text,
+                IMG_FOUR,
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
