@@ -19,7 +19,6 @@ CurrencyConverter
 googletrans
 jikanpy
 speedtest-cli
-coffeehouse
 telegraph
 regex
 bleach
