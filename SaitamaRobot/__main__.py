@@ -495,7 +495,7 @@ def settings_button(update: Update, context: CallbackContext):
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
                 "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(chat.title), GIF_VID,
+                "you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         curr_page - 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -553,7 +553,6 @@ def get_settings(update: Update, context: CallbackContext):
             text = "Click here to get this chat's settings, as well as yours"
             msg.reply_text(
                 text,
-                IMG_FOUR,
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
