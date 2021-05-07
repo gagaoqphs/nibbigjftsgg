@@ -90,9 +90,9 @@ HELP_STRINGS = """
 Hey there! My name is *{}* [❂](https://telegra.ph/file/285d97df62071bfd087f2.jpg)
 
 Trust in my ⚔️ AinCrad Sword Style ⚔️...
-I am the one who can mange your group in best possible way...
+I am the one who can manage your group in best possible way...
 
-If I am Not Working Then You Can Report Me At @KazutoSuppot
+If I am Not Working Then You Can Report Me At @KazutoSupport
 
 *Main* commands available:
  • /help: PM's you this message.
