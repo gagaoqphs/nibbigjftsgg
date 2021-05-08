@@ -33,6 +33,32 @@ KAZUTO = (
   "Have a taste of betrayal..."
 )
 
+GBAM = "<b>Time To Steal Girl Friend from {user2}</b>  \n \nChat Id : <code>{chatid}</code> \nReason : <i>{reason}</i> \nGFBanned By {user1}"
+
+GBAM_REASON = (
+    "Pro af",
+    "Pro BOT Owner",
+    "Unpaid Herku bills",
+    "Multiple telegrum id",
+    "Never helps noobs",
+    "pokimon trainer",
+    "bullied Sung",
+    "Doesnt Give Sudo",
+    "Piro spy",
+    "loves K-poop",
+    "Grandson of lars",
+    "Waifu thif",
+    "spammir of tinder",
+    "pro coder",
+    "Doesnt love anime",
+    "doesnt know the differnce between cartoon and anime",
+    "peru but gey",
+    "Always onlin on tg",
+    "Always happi",
+
+)
+
+
 KIRI_IMG = (
   "https://i.imgur.com/SLawXBp.jpeg",
   "https://i.imgur.com/G8NjbXE.jpg",
