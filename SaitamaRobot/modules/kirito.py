@@ -135,7 +135,8 @@ def gfban(update, context):
     if int(user.id) in DRAGONS or int(user.id) in DEMONS:
         gbamm = kiritostrings.GBAM
         reason = random.choice(kiritostrings.GFBAM_REASON)
-        gbam = gbamm.format(user1=user1, user2=user2, chatid=chat.id, reason=reason)
+        nogf = random.choice(kiritostrings.NO_GF) 
+        gbam = gbamm.format(user1=user1, user2=user2, chatid=chat.id, reason=reason, nogf=nogf)
         context.bot.sendMessage(chat.id, gbam, parse_mode=ParseMode.HTML)
 
 
