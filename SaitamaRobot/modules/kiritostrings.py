@@ -35,7 +35,7 @@ KAZUTO = (
 
 GBAM = "<b>Time To Steal Girl Friend from {user2}</b>  \n \nChat Id : <code>{chatid}</code> \nReason : <i>{reason}</i> \nGFBanned By {user1}"
 
-GBAM_REASON = (
+GFBAM_REASON = (
     "Pro af",
     "Pro BOT Owner",
     "Unpaid Herku bills",
