@@ -17,6 +17,8 @@ from SaitamaRobot.modules.helper_funcs.chat_status import (is_user_admin)
 from SaitamaRobot.modules.helper_funcs.extraction import extract_user
 from SaitamaRobot.modules.helper_funcs.alternate import send_message, typing_action
 
+from SaitamaRobot import dispatcher, DRAGONS, DEMONS, LOGGER
+
 @run_async
 def wiki(update: Update, context: CallbackContext):
     msg = update.effective_message.reply_to_message if update.effective_message.reply_to_message else update.effective_message
@@ -108,14 +110,46 @@ def check_message(context: CallbackContext, message):
         return False
     
     
+    @run_async
+def gfban(update, context):
+    user = update.effective_user
+    chat = update.effective_chat
+    bot, args = context.bot, context.args
+    message = update.effective_message
+
+    curr_user = html.escape(message.from_user.first_name)
+    user_id = extract_user(message, args)
+
+    if user_id:
+        gbam_user = bot.get_chat(user_id)
+        user1 = curr_user
+        user2 = html.escape(gbam_user.first_name)
+
+    else:
+        user1 = curr_user
+        user2 = bot.first_name
+
+
+    if update.effective_message.chat.type == "private":
+        return
+    if int(user.id) in DRAGONS or int(user.id) in DEMONS:
+        gbamm = kiritostrings.GBAM
+        reason = random.choice(kiritostrings.GFBAM_REASON)
+        gbam = gbamm.format(user1=user1, user2=user2, chatid=chat.id, reason=reason)
+        context.bot.sendMessage(chat.id, gbam, parse_mode=ParseMode.HTML)
+
 
     
+    
+
+    
+GFBAM_HANDLER = CommandHandler("gfban", gfban)    
 KIRITO_HANDLER = DisableAbleCommandHandler("kirito", kirito)
 KAZUTO_HANDLER = DisableAbleCommandHandler("kazuto", kazuto)
 LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics)
 WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki)
 
-
+dispatcher.add_handler(GFBAM_HANDLER)
 dispatcher.add_handler(WIKI_HANDLER)
 dispatcher.add_handler(KAZUTO_HANDLER)
 dispatcher.add_handler(KIRITO_HANDLER)
