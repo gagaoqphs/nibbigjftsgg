@@ -1,14 +1,16 @@
 import html
 
-from typing import List
+from typing import Optional
 
 from telegram import Update, Bot
 from telegram.ext import CommandHandler, Filters
 from SaitamaRobot.ext.dispatcher import run_async
 
-from SaitamaRobot import dispatcher, SUDO_USERS, OWNER_USERNAME, OWNER_ID
+from SaitamaRobot import dispatcher, DRAGONS, OWNER_USERNAME, OWNER_ID
 from SaitamaRobot.modules.helper_funcs.extraction import extract_user
 from SaitamaRobot.modules.helper_funcs.chat_status import bot_admin
+
+ELEVATED_USERS_FILE = os.path.join(os.getcwd(), "SaitamaRobot/elevated_users.json")
 
 
 @bot_admin
@@ -23,17 +25,17 @@ def sudopromote(bot: Bot, update: Update, args: List[str]):
         return ""
         
     if int(user_id) == OWNER_ID:
-        message.reply_text("Splo AinCrad Raider has always been one of my favorites!")
+        message.reply_text("Solo AinCrad Raider has always been one of my favorites!")
         return ""
         
-    if int(user_id) in SUDO_USERS:
+    if int(user_id) in DRAGONS:
         message.reply_text("Already a serving Shadow of AinCrad.")
         return ""
     
-    with open("sudo_users.txt","a") as file:
+    with open(ELEVATED_USERS_FILE,"a") as file:
         file.write(str(user_id) + "\n")
     
-    SUDO_USERS.append(user_id)
+    DRAGONS.append(user_id)
     message.reply_text("Succefully extracted Shadow under your protection now!")
         
     return ""
@@ -45,25 +47,25 @@ def sudodemote(bot: Bot, update: Update, args: List[str]):
     user_id = extract_user(message, args)
     
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("You don't seem to be referring to a Shadow.")
         return ""
 
     if int(user_id) == OWNER_ID:
         message.reply_text("Solo AinCrad Raider! He holds all the powers here...U cant touch him")
         return ""
     
-    if user_id not in SUDO_USERS:
+    if user_id not in DRAGONS:
         message.reply_text("{} is not a sudo user".format(user_id))
         return ""
 
-    users = [line.rstrip('\n') for line in open("sudo_users.txt")]
+    users = [line.rstrip('\n') for line in open(ELEVATED_USERS_FILE)]
 
-    with open("sudo_users.txt","w") as file:
+    with open(ELEVATED_USERS_FILE,"w") as file:
         for user in users:
             if not int(user) == user_id:
                 file.write(str(user) + "\n")
 
-    SUDO_USERS.remove(user_id)
+    DRAGONS.remove(user_id)
     message.reply_text("Shadow Released... Disappered into nothingness...!")
     
     return ""
