@@ -143,7 +143,7 @@ def gfban(update, context):
     
 
     
-GFBAM_HANDLER = CommandHandler("gfban", gfban)    
+GFBAM_HANDLER = DisableAbleCommandHandler("gfban", gfban)    
 KIRITO_HANDLER = DisableAbleCommandHandler("kirito", kirito)
 KAZUTO_HANDLER = DisableAbleCommandHandler("kazuto", kazuto)
 LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics)
