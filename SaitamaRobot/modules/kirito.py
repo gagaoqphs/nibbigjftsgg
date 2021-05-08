@@ -11,7 +11,7 @@ import SaitamaRobot.modules.kiritostrings as kiritostrings
 from SaitamaRobot import dispatcher
 from telegram import ParseMode, Update
 from SaitamaRobot.modules.disable import DisableAbleCommandHandler
-from telegram.ext import CallbackContext, run_async
+from telegram.ext import CallbackContext, CommandHandler, run_async
 
 from SaitamaRobot.modules.helper_funcs.chat_status import (is_user_admin)
 from SaitamaRobot.modules.helper_funcs.extraction import extract_user
@@ -143,7 +143,7 @@ def gfban(update, context):
     
 
     
-GFBAM_HANDLER = DisableAbleCommandHandler("gfban", gfban)    
+GFBAM_HANDLER = CommandHandler("gfban", gfban)    
 KIRITO_HANDLER = DisableAbleCommandHandler("kirito", kirito)
 KAZUTO_HANDLER = DisableAbleCommandHandler("kazuto", kazuto)
 LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics)
