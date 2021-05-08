@@ -33,7 +33,20 @@ KAZUTO = (
   "Have a taste of betrayal..."
 )
 
-GBAM = "<b>Time To Steal Girl Friend from {user2}</b>  \n \nChat Id : <code>{chatid}</code> \nReason : <i>{reason}</i> \nGFBanned By {user1}"
+GBAM = "<b>Time To Steal Girl Friend from {user2}</b>  \n \n➩Chat Id : <code>{chatid}</code> \n➩Reason : <i>{reason}</i> \n➩Number of Gf Steal : <code>{nogf}</code> \n \n<b>GFBanned By {user1}</b>"
+
+NO_GF = (
+       "1",
+       "2",
+       "3", 
+       "4", 
+       "5", 
+       "6", 
+       "7", 
+       "8", 
+       "9", 
+       "10", 
+) 
 
 GFBAM_REASON = (
     "Pro af",
