@@ -110,7 +110,7 @@ def check_message(context: CallbackContext, message):
         return False
     
     
-    @run_async
+@run_async
 def gfban(update, context):
     user = update.effective_user
     chat = update.effective_chat
