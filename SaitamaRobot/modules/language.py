@@ -4,10 +4,10 @@ from collections.abc import Iterable
 from telegram.ext import CommandHandler, CallbackQueryHandler
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 
-from tg_bot import dispatcher
-import tg_bot.modules.sql.language_sql as sql
-from tg_bot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from tg_bot.langs import get_string, get_languages, get_language
+from SaitamaRobot import dispatcher
+import SaitamaRobot.modules.sql.language_sql as sql
+from SaitamaRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from SaitamaRobot.langs import get_string, get_languages, get_language
 
 
 
@@ -15,7 +15,7 @@ def paginate(
     iterable: Iterable, page_size: int
 ) -> Generator[List, None, None]:
     while True:
-        i1, i2 = itertools.tee(iterable)
+        i1, i2 = itertools.tee(iterable
         iterable, page = (
             itertools.islice(i1, page_size, None),
             list(itertools.islice(i2, page_size)),
