@@ -357,7 +357,7 @@ def manga(update: Update, context: CallbackContext):
             )
 
 
-from tg_bot.modules.language import gs
+from SaitamaRobot.modules.language import gs
 
 
 def get_help(chat):
