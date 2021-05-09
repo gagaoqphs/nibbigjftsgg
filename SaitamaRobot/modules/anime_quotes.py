@@ -18,7 +18,7 @@ from telegram.ext import (
     CallbackQueryHandler,
 )
 
-
+@run_async
 def anime_quote():
     url = "https://animechan.vercel.app/api/random"
     # since text attribute returns dictionary like string
@@ -32,7 +32,7 @@ def anime_quote():
     anime = dic["anime"]
     return quote, character, anime
 
-
+@run_async
 def quotes(update: Update, context: CallbackContext):
     message = update.effective_message
     quote, character, anime = anime_quote()
@@ -46,7 +46,7 @@ def quotes(update: Update, context: CallbackContext):
         parse_mode=ParseMode.HTML,
     )
 
-
+@run_async
 def change_quote(update: Update, context: CallbackContext):
     query = update.callback_query
     chat = update.effective_chat
