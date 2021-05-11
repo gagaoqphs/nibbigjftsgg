@@ -66,3 +66,4 @@ python-arq
 lyricsgenius
 wget
 envparse
+pyUltroid
