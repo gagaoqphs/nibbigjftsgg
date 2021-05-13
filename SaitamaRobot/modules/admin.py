@@ -144,7 +144,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         return
 
     if user_member.status == "administrator" or user_member.status == "creator":
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("If you want to POWER promote someone... demote them first")
         return
 
     if user_id == bot.id:
