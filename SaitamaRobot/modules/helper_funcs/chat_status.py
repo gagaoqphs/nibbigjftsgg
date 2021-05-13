@@ -74,20 +74,17 @@ def can_delete(chat: Chat, bot_id: int) -> bool:
     return chat.get_member(bot_id).can_delete_messages
 
 
-def bot_has_vc(chat: Chat) -> List[User]:
-    get = cache.admins.get(chat.id)
+def bot_has_vc(chat: Chat, bot_id: int, bot_member: ChatMember = None) -> bool:
+    chat_admins = dispatcher.bot.getChatAdministrators(chat.id)
 
-    if get:
-        return get
+    if chat_admins:
+        return chat_admins
     else:
-        administrators = chat.get_members(filter="administrators")
+        bot_has_vc = chat.get_members(filter="administrators")
         to_set = []
 
-        for administrator in administrators:
+        for bot_has_vc in administrators:
             if bot.can_manage_voice_chats:
-                to_set.append(bot.user.id)
-
-        cache.admins.set(chat.id, to_set)
         return bot_has_vc(chat)
 
 
