@@ -179,10 +179,8 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         f"Sucessfully Power promoted <b>{user_member.user.first_name or user_id}</b> by AinCrad's Blessing!",
         parse_mode=ParseMode.HTML,
     )
-     message.effective_message.reply_photo(
-                KIRITO_IMG,
-     )
-        
+    
+    
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#PROMOTED\n"
