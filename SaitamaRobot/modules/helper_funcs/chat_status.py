@@ -74,6 +74,23 @@ def can_delete(chat: Chat, bot_id: int) -> bool:
     return chat.get_member(bot_id).can_delete_messages
 
 
+def bot_has_vc(chat: Chat) -> List[User]:
+    get = cache.admins.get(chat.id)
+
+    if get:
+        return get
+    else:
+        administrators = await chat.get_members(filter="administrators")
+        to_set = []
+
+        for administrator in administrators:
+            if bot.can_manage_voice_chats:
+                to_set.append(bot.user.id)
+
+        cache.admins.set(chat.id, to_set)
+        return bot_has_vc(chat)
+
+
 def is_user_ban_protected(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
     if (
         chat.type == "private"
