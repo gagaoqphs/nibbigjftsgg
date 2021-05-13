@@ -80,7 +80,7 @@ def bot_has_vc(chat: Chat) -> List[User]:
     if get:
         return get
     else:
-        administrators = await chat.get_members(filter="administrators")
+        administrators = chat.get_members(filter="administrators")
         to_set = []
 
         for administrator in administrators:
