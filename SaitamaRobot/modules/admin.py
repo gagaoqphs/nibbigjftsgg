@@ -176,8 +176,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
 
     bot.sendMessage(
         chat.id,
-        f"Sucessfully Power promoted<b>{user_member.user.first_name or user_id}</b> by AinCrad's Blessing!",
-        f"[❂](https://telegra.ph/file/d657c52abdcded83d560c.jpg)",
+        f"Sucessfully Power promoted <b>{user_member.user.first_name or user_id}</b> by AinCrad's Blessing![❂](https://telegra.ph/file/d657c52abdcded83d560c.jpg)",
         parse_mode=ParseMode.HTML,
     )
 
