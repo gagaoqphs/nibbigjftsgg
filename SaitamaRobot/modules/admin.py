@@ -176,7 +176,8 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
 
     bot.sendMessage(
         chat.id,
-        f"Sucessfully Power promoted by AinCrad's Blessing<b>{user_member.user.first_name or user_id}</b><b>[❂](https://telegra.ph/file/3d6edbea63516c62f279c.jpg)</b>!!",
+        f"Sucessfully Power promoted<b>{user_member.user.first_name or user_id}</b> by AinCrad's Blessing!",
+        f"[❂](https://telegra.ph/file/d657c52abdcded83d560c.jpg)",
         parse_mode=ParseMode.HTML,
     )
 
@@ -555,7 +556,7 @@ __help__ = """
  • `/unpin`*:* unpins the currently pinned message
  • `/invitelink`*:* gets invitelink
  • `/promote`*:* promotes the user replied to
- • `/fullpromote`*:* promotes the user replied to
+ • `/fullpromote`*:* promotes the user replied to + add admin permissions to user
  • `/demote`*:* demotes the user replied to
  • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
  • `/admincache`*:* force refresh the admins list
