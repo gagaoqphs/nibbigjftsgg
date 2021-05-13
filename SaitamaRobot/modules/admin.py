@@ -22,7 +22,7 @@ from SaitamaRobot.modules.helper_funcs.extraction import (
 )
 from SaitamaRobot.modules.log_channel import loggable
 from SaitamaRobot.modules.helper_funcs.alternate import send_message
-
+KIRITO_IMG = "https://telegra.ph/file/d657c52abdcded83d560c.jpg"
 
 @run_async
 @connection_status
@@ -176,9 +176,11 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
 
     bot.sendMessage(
         chat.id,
-        f"Sucessfully Power promoted <b>{user_member.user.first_name or user_id}</b> by AinCrad's Blessing![❂](https://telegra.ph/file/d657c52abdcded83d560c.jpg)",
+        f"Sucessfully Power promoted <b>{user_member.user.first_name or user_id}</b> by AinCrad's Blessing!",
         parse_mode=ParseMode.HTML,
     )
+     message.effective_message.reply_photo(
+                KIRITO_IMG,
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
