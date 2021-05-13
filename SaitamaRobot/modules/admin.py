@@ -181,7 +181,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
     )
      message.effective_message.reply_photo(
                 KIRITO_IMG,
-
+     )
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#PROMOTED\n"
