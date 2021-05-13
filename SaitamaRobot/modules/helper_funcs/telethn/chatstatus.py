@@ -97,6 +97,12 @@ async def can_add_admins(message):
         status = message.chat.admin_rights.add_admins
     return status
 
+async def can_manage_voice_chats(message):
+    status = False
+    if message.chat.admin_rights:
+        status = message.chat.admin_rights.manage_voice_chats
+    return status
+
 
 async def can_delete_messages(message):
 
