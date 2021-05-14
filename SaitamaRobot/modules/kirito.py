@@ -7,6 +7,7 @@ from quoters import Quote
 from pyrogram.types import Message
 from pyrogram import filters
 import urllib.request
+import requests as r
 
 import wikipedia
 from wikipedia.exceptions import DisambiguationError, PageError
@@ -82,11 +83,11 @@ def cat(_, message: Message):
     message.reply_photo(cat_url)
     
 @run_async
-def reddit(_, message: Message):
-    app.set_parse_mode("html")
-    if len(message.command) != 2:
-        message.reply_text("/reddit needs an argument")
-    subreddit = message.command[1]
+def creddit(update: Update, context: CallbackContext):
+    context.set_parse_mode("html")
+    if len(update.command) != 2:
+        update.effective_message.reply_text("/reddit needs an argument")
+    subreddit = update.command[1]
     res = r.get(f"https://meme-api.herokuapp.com/gimme/{subreddit}")
     res = res.json()
 
@@ -98,7 +99,7 @@ def reddit(_, message: Message):
     caps = f"<b>Title</b>: {title}\n"
     caps += f"<b>Subreddit: </b>r/{rpage}\n"
     caps += f"<b>PostLink:</b> {plink}"
-    message.reply_photo(photo=memeu, caption=(caps))
+    update.effective_message.reply_photo(photo=memeu, caption=(caps))
 
 @run_async
 def kazuto(update: Update, context: CallbackContext):
@@ -110,7 +111,7 @@ def kirito(update: Update, context: CallbackContext):
     name = message.reply_to_message.from_user.first_name if message.reply_to_message else message.from_user.first_name
     reply_photo = message.reply_to_message.reply_photo if message.reply_to_message else message.reply_photo
     reply_photo(
-        random.choice(kiritostrings.KIRI_IMG), caption=f'*Be my opponent {name}*')
+        random.choice(kiritostrings.KIRI_IMG), caption=f'**Be my opponent {name}**')
     
     
 @run_async
