@@ -1,8 +1,9 @@
 import html
 import random
-
+import pyjokes
 from telegram.error import BadRequest
 from tswift import Song
+from quoters import Quote
 
 import wikipedia
 from wikipedia.exceptions import DisambiguationError, PageError
@@ -57,6 +58,16 @@ def wiki(update: Update, context: CallbackContext):
                 parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True)
 
+            
+@run_async
+def crackjoke(update: Update, context: CallbackContext):
+    joke = pyjokes.get_joke(language="en", category="neutral")
+    update.effective_message.reply_text(joke)
+    
+@run_async    
+def quoter(update: Update, context: CallbackContext):
+    quote = Quote.print()
+    update.effective_message.reply_text(quote)
 
 @run_async
 def kazuto(update: Update, context: CallbackContext):
@@ -144,12 +155,16 @@ def gfban(update, context):
     
 
     
+FJOKE_HANDLER = CommandHandler("fjoke", crackjoke)
+FQUOTE_HANDLER = CommandHandler("fquote", quoter)
 GFBAM_HANDLER = CommandHandler("gfban", gfban)    
 KIRITO_HANDLER = DisableAbleCommandHandler("kirito", kirito)
 KAZUTO_HANDLER = DisableAbleCommandHandler("kazuto", kazuto)
 LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics)
 WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki)
 
+dispatcher.add_handler(FJOKE_HANDLER)
+dispatcher.add_handler(FQUOTE_HANDLER)
 dispatcher.add_handler(GFBAM_HANDLER)
 dispatcher.add_handler(WIKI_HANDLER)
 dispatcher.add_handler(KAZUTO_HANDLER)
