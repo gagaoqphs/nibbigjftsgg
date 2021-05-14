@@ -4,6 +4,9 @@ import pyjokes
 from telegram.error import BadRequest
 from tswift import Song
 from quoters import Quote
+from pyrogram.types import Message
+from pyrogram import filters
+import urllib.request
 
 import wikipedia
 from wikipedia.exceptions import DisambiguationError, PageError
@@ -68,6 +71,34 @@ def crackjoke(update: Update, context: CallbackContext):
 def quoter(update: Update, context: CallbackContext):
     quote = Quote.print()
     update.effective_message.reply_text(quote)
+    
+@run_async   
+def cat(_, message: Message):
+    with urllib.request.urlopen(
+        "https://api.thecatapi.com/v1/images/search"
+    ) as url:
+        data = json.loads(url.read().decode())
+    cat_url = (data[0]['url'])
+    message.reply_photo(cat_url)
+    
+@run_async
+def reddit(_, message: Message):
+    app.set_parse_mode("html")
+    if len(message.command) != 2:
+        message.reply_text("/reddit needs an argument")
+    subreddit = message.command[1]
+    res = r.get(f"https://meme-api.herokuapp.com/gimme/{subreddit}")
+    res = res.json()
+
+    rpage = res.get(str("subreddit"))  # Subreddit
+    title = res.get(str("title"))  # Post title
+    memeu = res.get(str("url"))  # meme pic url
+    plink = res.get(str("postLink"))
+
+    caps = f"<b>Title</b>: {title}\n"
+    caps += f"<b>Subreddit: </b>r/{rpage}\n"
+    caps += f"<b>PostLink:</b> {plink}"
+    message.reply_photo(photo=memeu, caption=(caps))
 
 @run_async
 def kazuto(update: Update, context: CallbackContext):
@@ -154,7 +185,8 @@ def gfban(update, context):
     
     
 
-    
+REDDIT_HANDLER = CommandHandler("reddit", reddit)  
+CAT_HANDLER = CommandHandler("cat", cat)    
 FJOKE_HANDLER = CommandHandler("fjoke", crackjoke)
 FQUOTE_HANDLER = CommandHandler("fquote", quoter)
 GFBAM_HANDLER = CommandHandler("gfban", gfban)    
@@ -163,6 +195,9 @@ KAZUTO_HANDLER = DisableAbleCommandHandler("kazuto", kazuto)
 LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics)
 WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki)
 
+
+dispatcher.add_handler(REDDIT_HANDLER)
+dispatcher.add_handler(CAT_HANDLER)
 dispatcher.add_handler(FJOKE_HANDLER)
 dispatcher.add_handler(FQUOTE_HANDLER)
 dispatcher.add_handler(GFBAM_HANDLER)
