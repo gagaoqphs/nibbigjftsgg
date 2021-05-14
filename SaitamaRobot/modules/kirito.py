@@ -84,7 +84,7 @@ def cat(_, message: Message):
     message.reply_photo(cat_url)
     
 @run_async
-def creddit(update: Update, context: CallbackContext):
+def reddit(update: Update, context: CallbackContext):
     context.set_parse_mode("html")
     if len(update.command) != 2:
         update.effective_message.reply_text("/reddit needs an argument")
