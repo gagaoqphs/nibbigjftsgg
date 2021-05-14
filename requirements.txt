@@ -67,3 +67,7 @@ lyricsgenius
 wget
 envparse
 pyUltroid
+tgcrypto
+pyjokes
+quoters
+howdoi
