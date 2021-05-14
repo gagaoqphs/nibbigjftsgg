@@ -8,6 +8,7 @@ from pyrogram.types import Message
 from pyrogram import filters
 import urllib.request
 import requests as r
+import json
 
 import wikipedia
 from wikipedia.exceptions import DisambiguationError, PageError
