@@ -9,7 +9,7 @@ from telethon import TelegramClient
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from Python_ARQ import ARQ
 from pyrogram import Client, errors
-
+from configparser import ConfigParser
 StartTime = time.time()
 
 # enable logging
@@ -157,7 +157,7 @@ else:
     SPAMWATCH_API = Config.SPAMWATCH_API
     INFOPIC = Config.INFOPIC
     BOT_ID = Config.BOT_ID
-    
+    app = Client(":memory:", workers=16)
     try:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
     except ValueError:
