@@ -5,8 +5,8 @@ import re
 from pyrogram.filters import create
 from pyrogram.types import Message
 
-from wbb import Command
-from wbb.utils.botinfo import BOT_USERNAME
+from SaitamaRobot import Command
+from SaitamaRobot.utils.botinfo import BOT_USERNAME
 
 
 def command(
