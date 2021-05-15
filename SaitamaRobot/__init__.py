@@ -157,7 +157,9 @@ else:
     SPAMWATCH_API = Config.SPAMWATCH_API
     INFOPIC = Config.INFOPIC
     BOT_ID = Config.BOT_ID
-    app = Client(":memory:", workers=16)
+    
+
+    
     try:
         BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
     except ValueError:
@@ -189,6 +191,9 @@ DEV_USERS = list(DEV_USERS)
 WOLVES = list(WOLVES)
 DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
+
+
+app = Client(":memory:", workers=16)
 
 # Load at end to ensure all prev variables have been set
 from SaitamaRobot.modules.helper_funcs.handlers import (
