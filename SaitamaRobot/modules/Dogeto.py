@@ -9,9 +9,10 @@ import asyncio
 from random import randint
 from pyrogram import filters
 from pyrogram.types import Message
+from SaitamaRobot import telethn as tbot
+from SaitamaRobot.events import register
 
-
-@app.on_message(cust_filter.command(commands=("cat")) & ~filters.edited)
+@register(pattern=r"^/cat ?(.*)")
 async def cat(_, message: Message):
     with urllib.request.urlopen(
         "https://api.thecatapi.com/v1/images/search"
@@ -21,7 +22,7 @@ async def cat(_, message: Message):
     await message.reply_photo(cat_url)
 
 
-@app.on_message(cust_filter.command(commands=("reddit")) & ~filters.edited)
+@register(pattern=r"^/reddit ?(.*)")
 async def reddit(_, message: Message):
     app.set_parse_mode("html")
     if len(message.command) != 2:
