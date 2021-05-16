@@ -195,6 +195,10 @@ DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
 
 
+config = ConfigParser()
+config.read("config.ini")
+Command = config.get("prefix", "prefixes").split()
+
 app = Client(":memory:", workers=16)
 
 # Load at end to ensure all prev variables have been set
