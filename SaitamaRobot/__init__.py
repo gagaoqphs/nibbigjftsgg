@@ -169,7 +169,7 @@ else:
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 
-REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
+'''REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
 
 try:
 
@@ -186,7 +186,7 @@ finally:
    REDIS.ping()
 
    LOGGER.info("Your redis server is now alive!")
-    
+    '''
 
 if not SPAMWATCH_API:
     sw = None
