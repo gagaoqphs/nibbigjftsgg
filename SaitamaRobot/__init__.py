@@ -93,26 +93,6 @@ if ENV:
     REDIS_URL = os.environ.get('REDIS_URL')
 
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
-    
-    
-    REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
-
-try:
-
-    REDIS.ping()
-
-    LOGGER.info("Your redis server is now alive!")
-
-except BaseException:
-
-    raise Exception("Your redis server is not alive, please check again.")
-
-finally:
-
-   REDIS.ping()
-
-   LOGGER.info("Your redis server is now alive!")
-    
 
     try:
         BL_CHATS = set(int(x) for x in os.environ.get("BL_CHATS", "").split())
@@ -188,6 +168,25 @@ else:
 
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
+
+REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
+
+try:
+
+    REDIS.ping()
+
+    LOGGER.info("Your redis server is now alive!")
+
+except BaseException:
+
+    raise Exception("Your redis server is not alive, please check again.")
+
+finally:
+
+   REDIS.ping()
+
+   LOGGER.info("Your redis server is now alive!")
+    
 
 if not SPAMWATCH_API:
     sw = None
