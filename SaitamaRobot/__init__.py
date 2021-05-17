@@ -10,6 +10,7 @@ from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from Python_ARQ import ARQ
 from pyrogram import Client, errors
 from configparser import ConfigParser
+from redis import StrictRedis
 StartTime = time.time()
 
 # enable logging
@@ -89,8 +90,28 @@ if ENV:
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", None)
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
+    REDIS_URL = os.environ.get('REDIS_URL')
 
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
+    
+    
+    REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
+
+try:
+
+    REDIS.ping()
+
+    LOGGER.info("Your redis server is now alive!")
+
+except BaseException:
+
+    raise Exception("Your redis server is not alive, please check again.")
+
+finally:
+
+   REDIS.ping()
+
+   LOGGER.info("Your redis server is now alive!")
     
 
     try:
