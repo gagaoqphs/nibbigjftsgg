@@ -88,31 +88,35 @@ def gban(update: Update, context: CallbackContext):
             "You don't seem to be referring to a user or the ID specified is incorrect.."
         )
         return
+    
+    if user_id == OWNER_ID:
+        message.reply_text("Give up!! You are trying to fight against someone who is above Gods and Demons... \nYeah!! He is the GodlyDemon...")
+        return
 
     if int(user_id) in DEV_USERS:
         message.reply_text(
-            "That user is part of the ✪AinCrad Ruler✪\nI can't act against our own."
+            "That user is an ✪AinCrad Ruler✪... \nI can't fight him... Give up!! You can't fight a God...."
         )
         return
 
     if int(user_id) in DRAGONS:
         message.reply_text(
-            "I spy, with my little eye... a disaster! Why are you guys turning on each other?"
+            "I spy, with my little eye... a Wielder! Why are you guys turning on each other?"
         )
         return
 
     if int(user_id) in DEMONS:
         message.reply_text(
-            "OOOH someone's trying to gban a Wizard Disaster! *grabs popcorn*"
+            "You are asking me to fight someone whoose power surpasses my own...."
         )
         return
 
     if int(user_id) in TIGERS:
-        message.reply_text("That's a Knight! They cannot be banned!")
+        message.reply_text("Fighting against a Knight... I am not sure if I can win against him...")
         return
 
     if int(user_id) in WOLVES:
-        message.reply_text("That's a Explorer! They cannot be banned!")
+        message.reply_text("OOOH someone's trying to fight an Explorer! *grabs popcorn*")
         return
 
     if user_id == bot.id:
