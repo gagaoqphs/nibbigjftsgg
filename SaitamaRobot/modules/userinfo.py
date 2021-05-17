@@ -114,7 +114,7 @@ def hpmanager(user):
 
 def make_bar(per):
     done = min(round(per / 10), 10)
-    return "⚔️" * done + "⛓" * (10 - done) 
+    return "◈" * done + "◇" * (10 - done) 
 
 
 @run_async
@@ -238,10 +238,10 @@ def info(update: Update, context: CallbackContext):
     else:
         return
 
-    rep = message.reply_text("<code>Appraising...</code>", parse_mode=ParseMode.HTML)
+    rep = message.reply_text("<code>Connecting to AinCrad...</code>", parse_mode=ParseMode.HTML)
 
     text = (
-        f"╒═══ ✪「<b> Appraisal results:</b> 」\n"
+        f"╔━━━━━━━━⊰✦✪「<b> AinCrad Appraisal results:</b> 」✪✦⊱━━━━━━━━╗\n"
         f"ID: <code>{user.id}</code>\n"
         f"✯First Name: {html.escape(user.first_name)}"
     )
@@ -287,22 +287,22 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThis person is '✯Solo AinCrad Raider✯'."
+        text += "\n\nThis person is the only '✯Solo AinCrad Raider✯'\nThere Are Limits To What A Solo Player Can Do..."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis person is '✪AinCrad Ruler✪'."
+        text += "\n\nThis person is an '✪AinCrad Ruler✪' \nOne above all...The Immortal God..."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThis person is '✫Wielder✫'."
+        text += "\n\nThis person is holds the power of a '✫Wielder✫'... \nThe Holder of the Supreme Power"
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThis person is '✯Wizard✯'."
+        text += "\n\nThis person is one of the '✯Wizard✯' \nThe Undying piller of AinCrad..."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThis person is '★Knight★'."
+        text += "\n\nThis person is a '★Knight★' \nThe Mighty Warriors and protector of Aincrad..."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThis person is '✧Explorer✧'."
+        text += "\n\nThis person is an '✧Explorer✧' \nThe Genius inventors and researchers of AinCrad... "
         disaster_level_present = True
 
     if disaster_level_present:
