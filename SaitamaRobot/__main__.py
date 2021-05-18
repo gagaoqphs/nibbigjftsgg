@@ -1,26 +1,31 @@
 import importlib
-import time
 import re
-from sys import argv
 from typing import Optional
-
-from SaitamaRobot import (
-    ALLOW_EXCL,
-    CERT_PATH,
-    DONATION_LINK,
-    LOGGER,
-    OWNER_ID,
-    PORT,
-    SUPPORT_CHAT,
-    TOKEN,
-    URL,
-    WEBHOOK,
-    SUPPORT_CHAT,
+from sys import argv
+from pyrogram import idle
+from telegram import Update, ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram.error import (TelegramError, Unauthorized, BadRequest,
+                            TimedOut, ChatMigrated, NetworkError)
+from telegram.ext import (
+    CallbackContext,
+    Filters
+)
+from telegram.ext.dispatcher import DispatcherHandlerStop
+from telegram.utils.helpers import escape_markdown
+from tg_bot import (
     dispatcher,
-    StartTime,
-    telethn,
     updater,
-    pbot, 
+    TOKEN,
+    WEBHOOK,
+    OWNER_ID,
+    CERT_PATH,
+    PORT,
+    URL,
+    log,
+    telethn,
+    kp,
+    KazutoINIT, 
+    pbot
 )
 
 # needed to dynamically load modules
@@ -44,9 +49,12 @@ from telegram.ext import (
     Filters,
     MessageHandler,
 )
-from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
-from telegram.utils.helpers import escape_markdown
 
+from tg_bot.modules import ALL_MODULES
+from tg_bot.modules.helper_funcs.chat_status import is_user_admin
+from tg_bot.modules.helper_funcs.misc import paginate_modules
+from tg_bot.modules.helper_funcs.decorators import kizcmd, kizcallback, kizmsg
+from tg_bot.modules.language import gs
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -166,7 +174,10 @@ for module_name in ALL_MODULES:
 # do not async
 def send_help(chat_id, text, keyboard=None):
     if not keyboard:
-        keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
+        kb = paginate_modules(0, HELPABLE, "help")
+        kb.append([InlineKeyboardButton(text='Support', url='https://t.me/kazutosupport'),
+        InlineKeyboardButton(text='Back', callback_data='start_back'), InlineKeyboardButton(text="Try inline", switch_inline_query_current_chat="")])
+        keyboard = InlineKeyboardMarkup(kb)
     dispatcher.bot.send_message(
         chat_id=chat_id, text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
     )
@@ -180,7 +191,8 @@ def test(update: Update, context: CallbackContext):
     print(update.effective_message)
 
 
-@run_async
+@kigcallback(pattern=r'start_back')
+@kigcmd(command='start', pass_args=True)
 def start(update: Update, context: CallbackContext):
     args = context.args
     uptime = get_readable_time((time.time() - StartTime))
