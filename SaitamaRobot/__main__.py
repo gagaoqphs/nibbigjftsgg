@@ -183,7 +183,7 @@ def send_help(chat_id, text, keyboard=None):
     )
 
 
-@run_async
+@kizcmd(command='text')
 def test(update: Update, context: CallbackContext):
     # pprint(eval(str(update)))
     # update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN)
@@ -191,8 +191,8 @@ def test(update: Update, context: CallbackContext):
     print(update.effective_message)
 
 
-@kigcallback(pattern=r'start_back')
-@kigcmd(command='start', pass_args=True)
+@kizcallback(pattern=r'start_back')
+@kizcmd(command='start', pass_args=True)
 def start(update: Update, context: CallbackContext):
     args = context.args
     uptime = get_readable_time((time.time() - StartTime))
@@ -301,7 +301,7 @@ def error_callback(update: Update, context: CallbackContext):
         # handle all other telegram related errors
 
 
-@run_async
+@kizcallback(pattern=r'help_')
 def help_button(update, context):
     query = update.callback_query
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
@@ -366,7 +366,7 @@ def help_button(update, context):
         pass
 
 
-@run_async
+@kizcmd(command='help')
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
     args = update.effective_message.text.split(None, 1)
@@ -469,7 +469,7 @@ def send_settings(chat_id, user_id, user=False):
             )
 
 
-@run_async
+@kizcallback(pattern=r"stngs_")
 def settings_button(update: Update, context: CallbackContext):
     query = update.callback_query
     user = update.effective_user
@@ -553,7 +553,7 @@ def settings_button(update: Update, context: CallbackContext):
             LOGGER.exception("Exception in settings buttons. %s", str(query.data))
 
 
-@run_async
+@kizcmd(command='settings')
 def get_settings(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
@@ -585,7 +585,7 @@ def get_settings(update: Update, context: CallbackContext):
         send_settings(chat.id, user.id, True)
 
 
-@run_async
+@kizcmd(command='donate')
 def donate(update: Update, context: CallbackContext):
     user = update.effective_message.from_user
     chat = update.effective_chat  # type: Optional[Chat]
@@ -696,7 +696,8 @@ def main():
 
 
 if __name__ == "__main__":
-    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
+    kp.start()
+    log.info("[KAZUTO] Successfully loaded modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
-    pbot.start() 
     main()
+    idle()
