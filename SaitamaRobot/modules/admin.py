@@ -1,13 +1,14 @@
 import html
 
+import html
+
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
-from telegram.utils.helpers import mention_html
+from telegram.ext import CallbackContext, Filters
+from telegram.utils.helpers import mention_html, mention_markdown
 
-from SaitamaRobot import DRAGONS, dispatcher
-from SaitamaRobot.modules.disable import DisableAbleCommandHandler
-from SaitamaRobot.modules.helper_funcs.chat_status import (
+from tg_bot import SUDO_USERS, dispatcher
+from tg_bot.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
     can_promote,
@@ -16,15 +17,17 @@ from SaitamaRobot.modules.helper_funcs.chat_status import (
     ADMIN_CACHE,
 )
 
-from SaitamaRobot.modules.helper_funcs.extraction import (
-    extract_user,
-    extract_user_and_text,
-)
-from SaitamaRobot.modules.log_channel import loggable
-from SaitamaRobot.modules.helper_funcs.alternate import send_message
+from tg_bot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from tg_bot.modules.log_channel import loggable
+from tg_bot.modules.helper_funcs.alternate import send_message
+from tg_bot import kp, get_entity
+from pyrogram import Client, filters
+from pyrogram.types import Chat, User
+from tg_bot.modules.language import gs
+from tg_bot.modules.helper_funcs.decorators import
 KIRITO_IMG = "https://telegra.ph/file/d657c52abdcded83d560c.jpg"
 
-@run_async
+@kizcmd(command="promote", can_disable=False)
 @connection_status
 @bot_admin
 @can_promote
@@ -107,7 +110,7 @@ def promote(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
+@kizcmd(command="fullpromote", can_disable=False)
 @connection_status
 @bot_admin
 @can_promote
@@ -191,7 +194,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
+@kizcmd(command="demote", can_disable=False)
 @connection_status
 @bot_admin
 @can_promote
@@ -265,7 +268,7 @@ def demote(update: Update, context: CallbackContext) -> str:
         return
 
 
-@run_async
+@kizcmd(command="admincache", can_disable=False)
 @user_admin
 def refresh_admin(update, _):
     try:
@@ -276,7 +279,7 @@ def refresh_admin(update, _):
     update.effective_message.reply_text("Admins cache refreshed!")
 
 
-@run_async
+@kizcmd(command="title", can_disable=False)
 @connection_status
 @bot_admin
 @can_promote
@@ -341,7 +344,7 @@ def set_title(update: Update, context: CallbackContext):
     )
 
 
-@run_async
+@kizcmd(command="pin", can_disable=False)
 @bot_admin
 @can_pin
 @user_admin
@@ -383,7 +386,7 @@ def pin(update: Update, context: CallbackContext) -> str:
         return log_message
 
 
-@run_async
+@kizcmd(command="unpin", can_disable=False)
 @bot_admin
 @can_pin
 @user_admin
@@ -410,7 +413,7 @@ def unpin(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
+@kizcmd(command="invitelink", can_disable=False)
 @bot_admin
 @user_admin
 @connection_status
@@ -435,7 +438,7 @@ def invite(update: Update, context: CallbackContext):
         )
 
 
-@run_async
+@kizcmd(command="admins", can_disable=False)
 @connection_status
 def adminlist(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
