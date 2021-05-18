@@ -15,12 +15,6 @@ from ptbcontrib.postgres_persistence import PostgresPersistence
 
 StartTime = time.time()
 
-def get_user_list(key):
-    # Import here to evade a circular import
-    from SaitamaRobot.modules.sql import nation_sql
-    royals = nation_sql.get_royals(key)
-    return [a.user_id for a in royals]
-
 # enable logging
 FORMAT = "[Enterprise] %(message)s"
 logging.basicConfig(handlers=[RichHandler()], level=logging.INFO, format=FORMAT, datefmt="[%X]")
