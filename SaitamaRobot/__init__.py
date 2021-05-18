@@ -17,7 +17,7 @@ StartTime = time.time()
 
 def get_user_list(key):
     # Import here to evade a circular import
-    from tg_bot.modules.sql import nation_sql
+    from SaitamaRobot.modules.sql import nation_sql
     royals = nation_sql.get_royals(key)
     return [a.user_id for a in royals]
 
@@ -55,11 +55,12 @@ class KigyoINIT:
         self.URL = self.parser.get('URL', None)
         self.CERT_PATH = self.parser.get('CERT_PATH', None)
         self.PORT = self.parser.getint('PORT', None)
-        self.INFOPIC = self.parser.getboolean('INFOPIC', False)
+        self.INFOPIC = self.parser.getboolean('INFOPIC', True)
         self.DEL_CMDS = self.parser.getboolean("DEL_CMDS", False)
         self.STRICT_GBAN = self.parser.getboolean("STRICT_GBAN", False)
         self.ALLOW_EXCL = self.parser.getboolean("ALLOW_EXCL", False)
         self.CUSTOM_CMD = ['/', '!']
+        self.MONGO_DB_URI = self.parser.get("MONGO_DB_URI", None)
         self.BAN_STICKER = self.parser.get("BAN_STICKER", None)
         self.TOKEN = self.parser.get("TOKEN")
         self.DB_URI = self.parser.get("SQLALCHEMY_DATABASE_URI")
@@ -127,18 +128,21 @@ TIME_API_KEY = KInit.TIME_API_KEY
 WALL_API = KInit.WALL_API
 CF_API_KEY = KInit.CF_API_KEY
 
-SPB_MODE = kigconfig.getboolean('SPB_MODE', False)
+SPB_MODE = kizconfig.getboolean('SPB_MODE', False)
 
 # SpamWatch
 sw = KInit.init_sw()
 
-from tg_bot.modules.sql import SESSION
+from SaitamaRobot.modules.sql import SESSION
 
-updater = tg.Updater(TOKEN, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, persistence=PostgresPersistence(SESSION))
-telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
+updater = tg.Updater(TOKEN), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, persistence=PostgresPersistence(SESSION))
+telethn = TelegramClient("kazuto", APP_ID, API_HASH)
+mongo_client = MongoClient(MONGO_DB_URI)
+pbot = Client("kazuto", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+db = mongo_client.SaitamaRobot
 dispatcher = updater.dispatcher
 
-kp = Client(":memory:", api_id=APP_ID, api_hash=API_HASH, bot_token=TOKEN )
+kp = Client(api_id=APP_ID, api_hash=API_HASH, bot_token=TOKEN )
 apps = []
 apps.append(kp)
 
