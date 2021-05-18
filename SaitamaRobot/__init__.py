@@ -132,7 +132,6 @@ from SaitamaRobot.modules.sql import SESSION
 updater = tg.Updater(TOKEN), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, persistence=PostgresPersistence(SESSION))
 telethn = TelegramClient("kazuto", APP_ID, API_HASH)
 mongo_client = MongoClient(MONGO_DB_URI)
-pbot = Client("kazuto", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 db = mongo_client.SaitamaRobot
 dispatcher = updater.dispatcher
 
