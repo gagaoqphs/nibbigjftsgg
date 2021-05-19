@@ -7,8 +7,8 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters
 from telegram.utils.helpers import mention_html, mention_markdown
 
-from tg_bot import SUDO_USERS, dispatcher
-from tg_bot.modules.helper_funcs.chat_status import (
+from SaitamaRobot import DRAGONS, dispatcher
+from SaitamaRobot.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
     can_promote,
@@ -17,14 +17,14 @@ from tg_bot.modules.helper_funcs.chat_status import (
     ADMIN_CACHE,
 )
 
-from tg_bot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.helper_funcs.alternate import send_message
-from tg_bot import kp, get_entity
+from SaitamaRobot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from SaitamaRobot.modules.log_channel import loggable
+from SaitamaRobot.modules.helper_funcs.alternate import send_message
+from SaitamaRobot import kp, get_entity
 from pyrogram import Client, filters
 from pyrogram.types import Chat, User
-from tg_bot.modules.language import gs
-from tg_bot.modules.helper_funcs.decorators import
+from SaitamaRobot.modules.language import gs
+from SaitamaRobot.modules.helper_funcs.decorators import
 KIRITO_IMG = "https://telegra.ph/file/d657c52abdcded83d560c.jpg"
 
 @kizcmd(command="promote", can_disable=False)
