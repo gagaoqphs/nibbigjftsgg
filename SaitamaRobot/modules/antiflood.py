@@ -1,12 +1,25 @@
 import html
-from typing import Optional, List
 import re
+from typing import Optional, List
 
-from telegram import Message, Chat, Update, User, ChatPermissions
+from telegram import (
+    Message,
+    Chat,
+    Update,
+    Bot,
+    User,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    ParseMode,
+    ChatPermissions,
+)
 
-from SaitamaRobot import TIGERS, WOLVES, dispatcher
+from SaitamaRobot import SARDEGNA_USERS, WHITELIST_USERS, dispatcher
+from SaitamaRobot.modules.sql.approve_sql import is_approved
 from SaitamaRobot.modules.helper_funcs.chat_status import (
     bot_admin,
+    can_restrict,
+    connection_status,
     is_user_admin,
     user_admin,
     user_admin_no_reply,
@@ -15,23 +28,27 @@ from SaitamaRobot.modules.log_channel import loggable
 from SaitamaRobot.modules.sql import antiflood_sql as sql
 from telegram.error import BadRequest
 from telegram.ext import (
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler,
     Filters,
-    MessageHandler,
-    run_async,
+    CallbackContext,
 )
 from telegram.utils.helpers import mention_html, escape_markdown
+from tg_bot import dispatcher
+from tg_bot.modules.helper_funcs.chat_status import (
+    is_user_admin,
+    user_admin,
+    can_restrict,
+)
 from SaitamaRobot.modules.helper_funcs.string_handling import extract_time
+from SaitamaRobot.modules.log_channel import loggable
+from SaitamaRobot.modules.sql import antiflood_sql as sql
 from SaitamaRobot.modules.connection import connected
 from SaitamaRobot.modules.helper_funcs.alternate import send_message
-from SaitamaRobot.modules.sql.approve_sql import is_approved
+from SaitamaRobot.modules.helper_funcs.decorators import kizcmd, kizmsg, kizcallback
 
 FLOOD_GROUP = 3
 
 
-@run_async
+@kizmsg((Filters.all & ~Filters.status_update & Filters.chat_type.groups), group=FLOOD_GROUP)
 @loggable
 def check_flood(update, context) -> str:
     user = update.effective_user  # type: Optional[User]
@@ -113,7 +130,7 @@ def check_flood(update, context) -> str:
         )
 
 
-@run_async
+@kigcallback(pattern=r"unmute_flooder")
 @user_admin_no_reply
 @bot_admin
 def flood_button(update: Update, context: CallbackContext):
@@ -143,7 +160,7 @@ def flood_button(update: Update, context: CallbackContext):
             pass
 
 
-@run_async
+@kizcmd(command='setflood', pass_args=True, filters=Filters.chat_type.groups)
 @user_admin
 @loggable
 def set_flood(update, context) -> str:
@@ -239,7 +256,7 @@ def set_flood(update, context) -> str:
     return ""
 
 
-@run_async
+@kizcmd(command="flood", filters=Filters.chat_type.groups)
 def flood(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
@@ -282,7 +299,7 @@ def flood(update, context):
             )
 
 
-@run_async
+@kizcmd(command="setfloodmode", pass_args=True, filters=Filters.chat_type.groups)
 @user_admin
 def set_flood_mode(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
