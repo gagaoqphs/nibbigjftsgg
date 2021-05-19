@@ -12,7 +12,7 @@ from telegram import (
 import requests
 import math
 import time
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from SaitamaRobot.modules.helper_funcs.decorators import kigcmd
 
 def shorten(description, info="anilist.co"):
     msg = ""
