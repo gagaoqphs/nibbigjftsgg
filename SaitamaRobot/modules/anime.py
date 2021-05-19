@@ -12,7 +12,7 @@ from telegram import (
 import requests
 import math
 import time
-from SaitamaRobot.modules.helper_funcs.decorators import kigcmd
+from SaitamaRobot.modules.helper_funcs.decorators import kizcmd
 
 def shorten(description, info="anilist.co"):
     msg = ""
@@ -160,7 +160,7 @@ query ($id: Int,$search: String) {
 
 url = "https://graphql.anilist.co"
 
-@kigcmd(command="airing")
+@kizcmd(command="airing")
 def airing(update: Update, context: CallbackContext):
     message = update.effective_message
     search_str = message.text.split(" ", 1)
@@ -182,7 +182,7 @@ def airing(update: Update, context: CallbackContext):
         msg += f"\n*Episode*:{response['episodes']}\n*Status*: `N/A`"
     update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
 
-@kigcmd(command="anime")
+@kizcmd(command="anime")
 def anime(update: Update, context: CallbackContext):
     message = update.effective_message
     search = message.text.split(" ", 1)
@@ -255,7 +255,7 @@ def anime(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
 
-@kigcmd(command="character")
+@kizcmd(command="character")
 def character(update: Update, context: CallbackContext):
     message = update.effective_message
     search = message.text.split(" ", 1)
@@ -289,7 +289,7 @@ def character(update: Update, context: CallbackContext):
                 msg.replace("<b>", "</b>"), parse_mode=ParseMode.MARKDOWN
             )
 
-@kigcmd(command="manga")
+@kizcmd(command="manga")
 def manga(update: Update, context: CallbackContext):
     message = update.effective_message
     search = message.text.split(" ", 1)
@@ -354,11 +354,5 @@ def manga(update: Update, context: CallbackContext):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
-
-
-from tg_bot.modules.language import gs
-
-def get_help(chat):
-    return gs(chat, "anilist_help")
 
 __mod_name__ = "AniList"
