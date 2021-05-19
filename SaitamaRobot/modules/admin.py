@@ -24,7 +24,7 @@ from SaitamaRobot import kp, get_entity
 from pyrogram import Client, filters
 from pyrogram.types import Chat, User
 from SaitamaRobot.modules.language import gs
-from SaitamaRobot.modules.helper_funcs.decorators import
+from SaitamaRobot.modules.helper_funcs.decorators import kizcmd
 KIRITO_IMG = "https://telegra.ph/file/d657c52abdcded83d560c.jpg"
 
 @kizcmd(command="promote", can_disable=False)
