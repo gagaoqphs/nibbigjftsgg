@@ -7,7 +7,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters
 from telegram.utils.helpers import mention_html, mention_markdown
 
-from SaitamaRobot import DRAGONS, dispatcher
+from SaitamaRobot import SUDO_USERS, dispatcher
 from SaitamaRobot.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
