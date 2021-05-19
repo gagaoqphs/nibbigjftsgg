@@ -1,18 +1,19 @@
 import random
 
-from SaitamaRobot import dispatcher
-from SaitamaRobot.modules.disable import (DisableAbleCommandHandler)
+from telegram import Update, MessageEntity
+from telegram.ext import Filters, CallbackContext, MessageHandler
+from telegram.error import BadRequest
 from SaitamaRobot.modules.sql import afk_sql as sql
 from SaitamaRobot.modules.users import get_user_id
-from telegram import MessageEntity, Update
-from telegram.error import BadRequest
-from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
+from SaitamaRobot.modules.helper_funcs.decorators import kizcmd, kizmsg
+
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
 
-@run_async
+@kizmsg(Filters.regex("(?i)brb"), friendly="afk", group=3)
+@kizcmd(command="afk", group=3)
 def afk(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(None, 1)
     notice = ""
@@ -30,7 +31,7 @@ def afk(update: Update, context: CallbackContext):
         fname, notice))
 
 
-@run_async
+@kizmsg((Filters.all & Filters.chat_type.groups), friendly='afk', group=1)
 def no_longer_afk(update: Update, context: CallbackContext):
     user = update.effective_user
     message = update.effective_message
@@ -55,7 +56,7 @@ def no_longer_afk(update: Update, context: CallbackContext):
             return
 
 
-@run_async
+@kizmsg((Filters.entity(MessageEntity.MENTION) | Filters.entity(MessageEntity.TEXT_MENTION) & Filters.chat_type.groups), friendly='afk', group=8)
 def reply_afk(update: Update, context: CallbackContext):
     bot = context.bot
     message = update.effective_message
